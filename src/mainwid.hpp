@@ -28,6 +28,10 @@ public slots:
 private slots:
     void mode_change(int);
     void refLCD(int,int,int);
+    void push_start();
+    void push_stop();
+    void push_setting();
+    void push_pause();
 private:
     void init_mode_Set();
     void init_buttons();
