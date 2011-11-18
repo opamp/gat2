@@ -87,7 +87,16 @@ void mainwid::push_pause(){
 }
 
 void mainwid::push_setting(){
-
+    switch(current_mode){
+    case COUNT_UP_M:
+        break;
+    case COUNT_DOWN_M:
+        setEnabled(false);
+        countdownSetting->show();
+        break;
+    case CUSTOM_COUNT_M:
+        break;
+    }
 }
 void mainwid::refLCD(int ht,int mt,int st){
     one->display(ht);
