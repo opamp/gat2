@@ -2,6 +2,7 @@
 #define MAINWID_HPP
 
 #include <QtGui>
+#include "countdown_setting.hpp"
 /*
 必要なボタンは 一時停止(再開) 中止 開始 かぬ あと 予約 か
 
@@ -20,7 +21,7 @@ public:
 signals:
     
 public slots:
-
+    void unsetDisable(){setEnabled(true);};
 private slots:
     void mode_change(int);
 private:
@@ -33,6 +34,9 @@ private:
     QComboBox *mode_Set;
     QString current_mode_string;int current_mode;
     QPushButton *start,*stop,*pause,*config;
+
+    countdown_setting *countdownSetting;
+
 };
 
 #endif // MAINWID_HPP

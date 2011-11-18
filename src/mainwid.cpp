@@ -3,6 +3,8 @@
 mainwid::mainwid(QWidget *parent) :
     QWidget(parent)
 {
+    countdownSetting = new countdown_setting();
+    connect(countdownSetting,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
     this->init_buttons();
     this->init_mode_Set();
     one = new QLCDNumber();
@@ -53,9 +55,11 @@ void mainwid::mode_change(int m){
     this->current_mode = m;
 
     switch(current_mode){
-    case COUNT_DOWN_M:
-        break;
     case COUNT_UP_M:
+        break;
+    case COUNT_DOWN_M:
+        setEnabled(false);
+        countdownSetting->show();
         break;
     case CUSTOM_COUNT_M:
         break;
