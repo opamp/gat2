@@ -4,6 +4,7 @@
 #include <QtGui>
 #include "countdown_setting.hpp"
 #include "count_time_data.hpp"
+#include "timer.hpp"
 
 /*
 必要なボタンは 一時停止(再開) 中止 開始 かぬ あと 予約 か

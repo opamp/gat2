@@ -8,6 +8,7 @@ class timer : public QThread
 Q_OBJECT
 public:
     timer();
+    void startThread(){this->run();};
     bool stop_f; // this thread stop when this flag is true.
 
 protected:
