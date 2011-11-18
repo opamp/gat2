@@ -12,13 +12,19 @@ countdown_setting::countdown_setting(QWidget *parent):
     ml = new QLabel(tr("m"));
     sl = new QLabel(tr("s"));
 
-    QHBoxLayout *mainlayout = new QHBoxLayout();
-    mainlayout->addWidget(hb);
-    mainlayout->addWidget(hl);
-    mainlayout->addWidget(mb);
-    mainlayout->addWidget(ml);
-    mainlayout->addWidget(sb);
-    mainlayout->addWidget(sl);
+    ok = new QPushButton(tr("OK"));
 
-    setLayout(mainlayout);
+    QHBoxLayout *mainSpinBoxlayout = new QHBoxLayout();
+    QVBoxLayout *mainLayout = new QVBoxLayout();
+    mainSpinBoxlayout->addWidget(hb);
+    mainSpinBoxlayout->addWidget(hl);
+    mainSpinBoxlayout->addWidget(mb);
+    mainSpinBoxlayout->addWidget(ml);
+    mainSpinBoxlayout->addWidget(sb);
+    mainSpinBoxlayout->addWidget(sl);
+
+    mainLayout->addLayout(mainSpinBoxlayout);
+    mainLayout->addWidget(ok);
+
+    setLayout(mainLayout);
 }

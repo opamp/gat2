@@ -14,5 +14,7 @@ private:
 
     QSpinBox *hb,*mb,*sb;
     QLabel *hl,*ml,*sl;
+
+    QPushButton *ok;
 };
 #endif
