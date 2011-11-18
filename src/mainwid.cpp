@@ -51,9 +51,13 @@ void mainwid::init_buttons(){
 void mainwid::mode_change(int m){
     this->current_mode_string = mode_Set->currentText();
     this->current_mode = m;
-/*
+
     switch(current_mode){
-    case COU:
+    case COUNT_DOWN_M:
+        break;
+    case COUNT_UP_M:
+        break;
+    case CUSTOM_COUNT_M:
+        break;
     }
-    */
 }

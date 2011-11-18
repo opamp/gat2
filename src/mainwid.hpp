@@ -7,7 +7,7 @@
 
 */
 
-#define COUNT_UO_M 0
+#define COUNT_UP_M 0
 #define COUNT_DOWN_M 1
 #define CUSTOM_COUNT_M 2
 
