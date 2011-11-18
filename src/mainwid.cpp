@@ -3,7 +3,6 @@
 mainwid::mainwid(QWidget *parent) :
     QWidget(parent)
 {
-	tdata.h = tdata.m = tdata.s = 0;
     countdownSetting = new countdown_setting(&tdata);
     connect(countdownSetting,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
     this->init_buttons();
