@@ -1,9 +1,9 @@
 #include "countdown_setting.hpp"
 
-countdown_setting::countdown_setting(QWidget *parent):
+countdown_setting::countdown_setting(ctd_d* d,QWidget *parent):
     QDialog(parent)
 {
-    h = m = s = as = 0;
+    timedata = d;
     hb = new QSpinBox();
     mb = new QSpinBox();
     sb = new QSpinBox();

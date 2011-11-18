@@ -13,7 +13,8 @@ SET(MHED
 	${SRC_DIR}/mainwid.hpp
 	${SRC_DIR}/timer.hpp
     ${SRC_DIR}/customCounter.hpp
-	${SRC_DIR}/countdown_setting.hpp
+    ${SRC_DIR}/countdown_setting.hpp
+	# ${SRC_DIR}/count_time_data.hpp
     )
 
 QT4_WRAP_CPP(HMOD ${MHED})

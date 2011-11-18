@@ -3,9 +3,10 @@
 
 #include <QtGui>
 #include "countdown_setting.hpp"
+#include "count_time_data.hpp"
+
 /*
 必要なボタンは 一時停止(再開) 中止 開始 かぬ あと 予約 か
-
 */
 
 #define COUNT_UP_M 0
@@ -36,9 +37,12 @@ private:
     QComboBox *mode_Set;
     QString current_mode_string;int current_mode;
     QPushButton *start,*stop,*pause,*config;
+    ctd_d tdata;
 
     countdown_setting *countdownSetting;
 
 };
+
+int HMSToSecond(const int,const int,const int);
 
 #endif // MAINWID_HPP

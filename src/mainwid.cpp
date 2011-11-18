@@ -3,7 +3,8 @@
 mainwid::mainwid(QWidget *parent) :
     QWidget(parent)
 {
-    countdownSetting = new countdown_setting();
+	tdata.h = tdata.m = tdata.s = 0;
+    countdownSetting = new countdown_setting(&tdata);
     connect(countdownSetting,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
     this->init_buttons();
     this->init_mode_Set();
@@ -64,4 +65,12 @@ void mainwid::mode_change(int m){
     case CUSTOM_COUNT_M:
         break;
     }
+}
+
+int HMSToSecond(const int h,const int m,const int s){
+	int as = 0;
+	as = s;
+	as += m * 60; // to sec
+	as += h * 3600; // to sec
+	return as;
 }
