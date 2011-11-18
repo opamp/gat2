@@ -5,11 +5,12 @@ mainwid::mainwid(QWidget *parent) :
 {
     countdownSetting = new countdown_setting(&tdata);
     connect(countdownSetting,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
+    connect(&tdata,SIGNAL(changeValue(int,int,int)),this,SLOT(refLCD(int,int,int)));
     this->init_buttons();
     this->init_mode_Set();
-    one = new QLCDNumber();
-    two = new QLCDNumber();
-    three = new QLCDNumber();
+    one = new QLCDNumber(); //h
+    two = new QLCDNumber(); //m
+    three = new QLCDNumber();//s
     all_s = new QLCDNumber();
 
     QVBoxLayout *mainlayout = new QVBoxLayout();
@@ -66,6 +67,14 @@ void mainwid::mode_change(int m){
     }
 }
 
+void mainwid::refLCD(int ht,int mt,int st){
+    one->display(ht);
+    two->display(mt);
+    three->display(st);
+    all_s->display(HMSToSecond(ht,mt,st));
+}
+
+
 int HMSToSecond(const int h,const int m,const int s){
 	int as = 0;
 	as = s;
@@ -73,3 +82,4 @@ int HMSToSecond(const int h,const int m,const int s){
 	as += h * 3600; // to sec
 	return as;
 }
+

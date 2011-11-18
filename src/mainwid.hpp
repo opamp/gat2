@@ -27,6 +27,7 @@ public slots:
     };
 private slots:
     void mode_change(int);
+    void refLCD(int,int,int);
 private:
     void init_mode_Set();
     void init_buttons();
