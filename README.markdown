@@ -11,7 +11,7 @@ gat2はgatの続編です。前作のgatがあまりにもバグが多かった�
 **build**  
 buildするときにはcmakeを使ってビルドしてください。Qt4が必要です。
 
-**LICENSE**
+**LICENSE**  
 Copyright (c) 2011, opamp
 All rights reserved.
 
