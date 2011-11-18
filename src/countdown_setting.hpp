@@ -14,6 +14,9 @@ protected:
 
 private slots:
     void push_ok();
+    void h_change(int);
+    void m_change(int);
+    void s_change(int);
 
 signals:
     void finishSetting();
