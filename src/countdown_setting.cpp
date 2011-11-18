@@ -13,6 +13,7 @@ countdown_setting::countdown_setting(QWidget *parent):
     sl = new QLabel(tr("s"));
 
     ok = new QPushButton(tr("OK"));
+    connect(ok,SIGNAL(clicked()),this,SLOT(push_ok()));
 
     QHBoxLayout *mainSpinBoxlayout = new QHBoxLayout();
     QVBoxLayout *mainLayout = new QVBoxLayout();
@@ -27,4 +28,10 @@ countdown_setting::countdown_setting(QWidget *parent):
     mainLayout->addWidget(ok);
 
     setLayout(mainLayout);
+}
+
+
+void countdown_setting::push_ok(){
+    emit finishSetting();
+    this->setVisible(false);
 }

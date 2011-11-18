@@ -9,7 +9,10 @@ public:
     countdown_setting(QWidget* parent = 0);
     int h,m,s;
     int as;
-
+protected:
+    void closeEvent(QCloseEvent* ce){this->push_ok();};
+private slots:
+    void push_ok();
 signals:
     void finishSetting();
 private:

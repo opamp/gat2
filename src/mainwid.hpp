@@ -21,7 +21,9 @@ public:
 signals:
     
 public slots:
-    void unsetDisable(){setEnabled(true);};
+    void unsetDisable(){
+        setEnabled(true);
+    };
 private slots:
     void mode_change(int);
 private:
