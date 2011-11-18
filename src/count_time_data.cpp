@@ -44,3 +44,37 @@ ctd_d::ctd_d(){
  {
     return this->s;
  }
+bool ctd_d::isZero(){
+    if(s == 0 && m == 0 && h == 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+void ctd_d::addOneSec(){
+    s+=1;
+    if(s >= 60){
+        s = 0;
+        m += 1;
+        if(m >= 60){
+            m = 0;
+            h += 1;
+        }
+    }
+}
+
+bool ctd_d::decOneSec(){
+    if(this->isZero() == true){
+        return false;
+    }
+    s-=1;
+    if(s < 0){
+        m-=1;
+        s = 59;
+        if(m < 0){
+            h-=1;
+            m = 59;
+        }
+    }
+}

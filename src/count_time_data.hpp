@@ -21,6 +21,9 @@ public:
     int get_h();
     int get_m();
     int get_s();
+    bool isZero();
+    void addOneSec();
+    bool decOneSec();
 signals:
     void changeValue(int,int,int);
 protected:

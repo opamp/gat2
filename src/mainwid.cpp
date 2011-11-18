@@ -49,6 +49,8 @@ void mainwid::init_buttons(){
     stop = new QPushButton(tr("Stop"));
     pause = new QPushButton(tr("Pause"));
     config = new QPushButton(tr("Setting"));
+    pause->setEnabled(false);
+    stop->setEnabled(false);
     connect(start,SIGNAL(clicked()),this,SLOT(push_start()));
     connect(stop,SIGNAL(clicked()),this,SLOT(push_stop()));
     connect(pause,SIGNAL(clicked()),this,SLOT(push_pause()));
@@ -72,10 +74,17 @@ void mainwid::mode_change(int m){
 }
 
 void mainwid::push_start(){
-
+    start->setEnabled(false);
+    config->setEnabled(false);
+    pause->setEnabled(true);
+    stop->setEnabled(true);
 }
 
 void mainwid::push_stop(){
+    start->setEnabled(true);
+    config->setEnabled(true);
+    pause->setEnabled(false);
+    stop->setEnabled(false);
     this->refLCD(0,0,0);
     tdata.set_h(0);
     tdata.set_m(0);
@@ -83,7 +92,6 @@ void mainwid::push_stop(){
 }
 
 void mainwid::push_pause(){
-
 }
 
 void mainwid::push_setting(){

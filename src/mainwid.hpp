@@ -4,7 +4,6 @@
 #include <QtGui>
 #include "countdown_setting.hpp"
 #include "count_time_data.hpp"
-#include "timer.hpp"
 
 /*
 必要なボタンは 一時停止(再開) 中止 開始 かぬ あと 予約 か
@@ -26,6 +25,7 @@ public slots:
     void unsetDisable(){
         setEnabled(true);
     };
+
 private slots:
     void mode_change(int);
     void refLCD(int,int,int);
