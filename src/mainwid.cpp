@@ -34,8 +34,8 @@ mainwid::mainwid(QWidget *parent) :
 
 void mainwid::init_mode_Set(){
     mode_Set = new QComboBox();
-    mode_Set->addItem(tr("Count Down"));
     mode_Set->addItem(tr("Enumerate"));
+    mode_Set->addItem(tr("Count Down"));
     mode_Set->addItem(tr("Custom Counter"));
     mode_Set->setEditable(false);
     connect(mode_Set,SIGNAL(currentIndexChanged(int)),this,SLOT(mode_change(int)));
@@ -51,4 +51,9 @@ void mainwid::init_buttons(){
 void mainwid::mode_change(int m){
     this->current_mode_string = mode_Set->currentText();
     this->current_mode = m;
+/*
+    switch(current_mode){
+    case COU:
+    }
+    */
 }
