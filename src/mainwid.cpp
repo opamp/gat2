@@ -17,6 +17,8 @@ mainwid::mainwid(QWidget *parent) :
 
     pause_f = false;
 
+    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
+
     QVBoxLayout *mainlayout = new QVBoxLayout();
     QHBoxLayout *sublayout = new QHBoxLayout();
     QHBoxLayout *buttonLayout = new QHBoxLayout();
@@ -159,6 +161,7 @@ void mainwid::takeOneSec(){
             this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
         }else{
             this->push_stop();
+            callaudio->play();
         }
         break;
     case CUSTOM_COUNT_M:

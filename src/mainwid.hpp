@@ -2,6 +2,7 @@
 #define MAINWID_HPP
 
 #include <QtGui>
+#include <Phonon>
 #include "countdown_setting.hpp"
 #include "count_time_data.hpp"
 #include "countup_box.hpp"
@@ -19,6 +20,7 @@ class mainwid : public QWidget
     Q_OBJECT
 public:
     explicit mainwid(QWidget *parent = 0);
+    ~mainwid(){delete callaudio;};
     
 signals:
     
@@ -49,6 +51,7 @@ private:
     QTimer *t;
     ctd_d tdata;
     bool pause_f;
+    Phonon::MediaObject *callaudio;
 
     countdown_setting *countdownSetting;
 

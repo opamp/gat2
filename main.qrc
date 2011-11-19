@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/audio">
+        <file>rsc/rsc.wav</file>
+    </qresource>
+</RCC>
