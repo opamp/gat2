@@ -84,6 +84,7 @@ void mainwid::push_start(){
     config->setEnabled(false);
     pause->setEnabled(true);
     stop->setEnabled(true);
+    mode_Set->setEnabled(false);
 
     if(current_mode == COUNT_UP_M){
         tdata.set_h(0);
@@ -102,6 +103,7 @@ void mainwid::push_stop(){
     config->setEnabled(true);
     pause->setEnabled(false);
     stop->setEnabled(false);
+    mode_Set->setEnabled(true);
     this->refLCD(0,0,0);
 
     if(current_mode == COUNT_UP_M){
