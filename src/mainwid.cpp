@@ -1,4 +1,5 @@
 #include "mainwid.hpp"
+#include <iostream>
 
 mainwid::mainwid(QWidget *parent) :
     QWidget(parent)
@@ -12,6 +13,8 @@ mainwid::mainwid(QWidget *parent) :
     two = new QLCDNumber(); //m
     three = new QLCDNumber();//s
     all_s = new QLCDNumber();
+
+    pause_f = false;
 
     QVBoxLayout *mainlayout = new QVBoxLayout();
     QHBoxLayout *sublayout = new QHBoxLayout();
@@ -42,6 +45,7 @@ void mainwid::init_mode_Set(){
     mode_Set->addItem(tr("Custom Counter"));
     mode_Set->setEditable(false);
     connect(mode_Set,SIGNAL(currentIndexChanged(int)),this,SLOT(mode_change(int)));
+    current_mode = COUNT_UP_M;
 }
 
 void mainwid::init_buttons(){
@@ -74,10 +78,17 @@ void mainwid::mode_change(int m){
 }
 
 void mainwid::push_start(){
+    pause_f = false;
     start->setEnabled(false);
     config->setEnabled(false);
     pause->setEnabled(true);
     stop->setEnabled(true);
+
+    if(current_mode == COUNT_UP_M){
+        tdata.set_h(0);
+        tdata.set_m(0);
+        tdata.set_s(0);
+    }
 
     t = new QTimer();
     connect(t,SIGNAL(timeout()),this,SLOT(takeOneSec()));
@@ -102,6 +113,10 @@ void mainwid::push_stop(){
 }
 
 void mainwid::push_pause(){
+    if(pause_f)
+        pause_f = false;
+    else
+        pause_f = true;
 }
 
 void mainwid::push_setting(){
@@ -123,6 +138,8 @@ void mainwid::refLCD(int ht,int mt,int st){
     all_s->display(HMSToSecond(ht,mt,st));
 }
 void mainwid::takeOneSec(){
+    if(pause_f)
+        return;
     switch(current_mode){
     case COUNT_UP_M:
         tdata.addOneSec();

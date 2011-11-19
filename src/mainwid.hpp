@@ -44,8 +44,9 @@ private:
     QComboBox *mode_Set;
     QString current_mode_string;int current_mode;
     QPushButton *start,*stop,*pause,*config;
-    QTimer *t; bool tf;int a;
+    QTimer *t;
     ctd_d tdata;
+    bool pause_f;
 
     countdown_setting *countdownSetting;
 
