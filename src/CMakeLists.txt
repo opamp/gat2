@@ -6,6 +6,7 @@ SET(MSRC
     ${SRC_DIR}/customCounter.cpp
 	${SRC_DIR}/countdown_setting.cpp
 	${SRC_DIR}/count_time_data.cpp
+	${SRC_DIR}/countup_box.cpp
 	)
 
 SET(MHED
@@ -14,6 +15,7 @@ SET(MHED
     ${SRC_DIR}/customCounter.hpp
     ${SRC_DIR}/countdown_setting.hpp
 	${SRC_DIR}/count_time_data.hpp
+	${SRC_DIR}/countup_box.hpp
     )
 
 QT4_WRAP_CPP(HMOD ${MHED})

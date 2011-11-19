@@ -4,6 +4,7 @@
 #include <QtGui>
 #include "countdown_setting.hpp"
 #include "count_time_data.hpp"
+#include "countup_box.hpp"
 
 /*
 必要なボタンは 一時停止(再開) 中止 開始 かぬ あと 予約 か
@@ -44,6 +45,7 @@ private:
     QComboBox *mode_Set;
     QString current_mode_string;int current_mode;
     QPushButton *start,*stop,*pause,*config;
+    countup_box *countup_msg;
     QTimer *t;
     ctd_d tdata;
     bool pause_f;

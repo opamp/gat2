@@ -13,6 +13,7 @@ mainwid::mainwid(QWidget *parent) :
     two = new QLCDNumber(); //m
     three = new QLCDNumber();//s
     all_s = new QLCDNumber();
+    countup_msg = new countup_box();
 
     pause_f = false;
 
@@ -102,6 +103,12 @@ void mainwid::push_stop(){
     pause->setEnabled(false);
     stop->setEnabled(false);
     this->refLCD(0,0,0);
+
+    if(current_mode == COUNT_UP_M){
+        countup_msg->setData(&tdata);
+        countup_msg->show();
+    }
+
     tdata.set_h(0);
     tdata.set_m(0);
     tdata.set_s(0);
