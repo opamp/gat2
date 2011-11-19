@@ -1,0 +1,2 @@
+#cmakedefine P_UNIX
+#cmakedefine P_WIN
