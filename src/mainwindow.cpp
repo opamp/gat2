@@ -10,6 +10,8 @@ mainwindow::mainwindow()
     help_bar = menuBar()->addMenu(tr("&Help and Info"));
     help_bar->addAction(a_about);
 
+	connect(this,SIGNAL(close_mainwid()),w,SLOT(delete_phonon_object()));
+
     setCentralWidget(w);
     setWindowTitle(tr("Gat2"));
 }

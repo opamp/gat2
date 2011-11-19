@@ -10,6 +10,10 @@ class mainwindow : public QMainWindow
 public:
     mainwindow();
 
+protected:
+	void closeEvent(QCloseEvent* ce){
+		emit close_mainwid();
+	};
 private:
     mainwid *w;
 
@@ -17,6 +21,9 @@ private:
     QAction *a_about;
 private slots:
     void about();
+
+signals:
+	void close_mainwid();
 };
 
 #endif // MAINWINDOW_HPP

@@ -28,6 +28,10 @@ public slots:
         setEnabled(true);
     };
 
+	void delete_phonon_object(){
+        delete callaudio;
+	};
+
 private slots:
     void mode_change(int);
     void refLCD(int,int,int);
@@ -53,6 +57,7 @@ private:
     Phonon::MediaObject *callaudio;
 
     countdown_setting *countdownSetting;
+
 
 };
 
