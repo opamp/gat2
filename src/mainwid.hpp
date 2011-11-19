@@ -20,7 +20,6 @@ class mainwid : public QWidget
     Q_OBJECT
 public:
     explicit mainwid(QWidget *parent = 0);
-    ~mainwid(){delete callaudio;};
     
 signals:
     

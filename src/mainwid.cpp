@@ -17,7 +17,7 @@ mainwid::mainwid(QWidget *parent) :
 
     pause_f = false;
 
-    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
+
 
     QVBoxLayout *mainlayout = new QVBoxLayout();
     QHBoxLayout *sublayout = new QHBoxLayout();
@@ -39,6 +39,7 @@ mainwid::mainwid(QWidget *parent) :
     mainlayout->addLayout(buttonLayout);
 
     setLayout(mainlayout);
+    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
 }
 
 void mainwid::init_mode_Set(){
@@ -81,6 +82,7 @@ void mainwid::mode_change(int m){
 }
 
 void mainwid::push_start(){
+    delete callaudio;
     pause_f = false;
     start->setEnabled(false);
     config->setEnabled(false);
@@ -160,6 +162,7 @@ void mainwid::takeOneSec(){
         if(tdata.decOneSec()){
             this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
         }else{
+            callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
             this->push_stop();
             callaudio->play();
         }
