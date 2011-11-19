@@ -33,6 +33,7 @@ private slots:
     void push_stop();
     void push_setting();
     void push_pause();
+    void takeOneSec();
 private:
     void init_mode_Set();
     void init_buttons();
@@ -43,6 +44,7 @@ private:
     QComboBox *mode_Set;
     QString current_mode_string;int current_mode;
     QPushButton *start,*stop,*pause,*config;
+    QTimer *t; bool tf;int a;
     ctd_d tdata;
 
     countdown_setting *countdownSetting;

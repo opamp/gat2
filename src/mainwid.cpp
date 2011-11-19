@@ -78,6 +78,11 @@ void mainwid::push_start(){
     config->setEnabled(false);
     pause->setEnabled(true);
     stop->setEnabled(true);
+
+    t = new QTimer();
+    connect(t,SIGNAL(timeout()),this,SLOT(takeOneSec()));
+    t->start(1000);//1s
+
 }
 
 void mainwid::push_stop(){
@@ -89,6 +94,11 @@ void mainwid::push_stop(){
     tdata.set_h(0);
     tdata.set_m(0);
     tdata.set_s(0);
+
+    t->stop();
+    disconnect(t,SIGNAL(timeout()),this,SLOT(takeOneSec()));
+    delete t;
+
 }
 
 void mainwid::push_pause(){
@@ -112,7 +122,23 @@ void mainwid::refLCD(int ht,int mt,int st){
     three->display(st);
     all_s->display(HMSToSecond(ht,mt,st));
 }
-
+void mainwid::takeOneSec(){
+    switch(current_mode){
+    case COUNT_UP_M:
+        tdata.addOneSec();
+        this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
+        break;
+    case COUNT_DOWN_M:
+        if(tdata.decOneSec()){
+            this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
+        }else{
+            this->push_stop();
+        }
+        break;
+    case CUSTOM_COUNT_M:
+        break;
+    }
+}
 
 int HMSToSecond(const int h,const int m,const int s){
 	int as = 0;

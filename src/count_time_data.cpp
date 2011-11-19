@@ -77,4 +77,5 @@ bool ctd_d::decOneSec(){
             m = 59;
         }
     }
+    return true;
 }
