@@ -3,7 +3,7 @@
 
 #include <QtGui>
 #include <config.hpp>
-#include <Phonon> // 環境によっては phonon/mediaobject.h としないとかもしれない
+#include <phonon/mediaobject.h>
 #include "countdown_setting.hpp"
 #include "count_time_data.hpp"
 #include "countup_box.hpp"
