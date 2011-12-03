@@ -8,7 +8,7 @@ gat2はgatの続編です。前作のgatがあまりにもバグが多かった�
 **build**  
 buildするときにはcmakeを使ってビルドしてください。Qt4が必要です。
 
-**Note**
+**Note**  
 includeの問題は解決した。あとは音の問題 Linux環境上では音が途切れstdoutにエラー出力がされてしまいWindowsではおそらく今も音がならない。
 
 
