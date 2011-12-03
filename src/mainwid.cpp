@@ -82,7 +82,7 @@ void mainwid::mode_change(int m){
 }
 
 void mainwid::push_start(){
-    delete callaudio;
+//    delete callaudio;
     pause_f = false;
     start->setEnabled(false);
     config->setEnabled(false);
@@ -99,7 +99,6 @@ void mainwid::push_start(){
     t = new QTimer();
     connect(t,SIGNAL(timeout()),this,SLOT(takeOneSec()));
     t->start(1000);//1s
-
 }
 
 void mainwid::push_stop(){
@@ -162,6 +161,7 @@ void mainwid::takeOneSec(){
         if(tdata.decOneSec()){
             this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
         }else{
+		    delete callaudio;
             callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
             this->push_stop();
             callaudio->play();

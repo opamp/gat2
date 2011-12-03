@@ -11,8 +11,6 @@ buildするときにはcmakeを使ってビルドしてください。Qt4が必�
 **Note**
 includeの問題は解決した。あとは音の問題 Linux環境上では音が途切れstdoutにエラー出力がされてしまいWindowsではおそらく今も音がならない。
 
-また、enumerateしたあとにcount downを続けて実行するとプラットフォームを問わずに落ちるバグがあるので修正する必要がある。
-
 
 **LICENSE**  
 Copyright (c) 2011, opamp
