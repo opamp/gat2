@@ -4,12 +4,16 @@ gat2
 **about**  
 gat2はgatの続編です。前作のgatがあまりにもバグが多かったので全部作りなおしてます。  
 主に自分がカップ麺作るときとか、時間を測って勉強するときなどに使えるようにつくってます。  
-  
+
+
 ![alt text](https://dl-web.dropbox.com/get/Public/pictures/gat2/png/gat.png?w=ba566421)
+ArchLinuxでの動作画像
 
 
 **build**  
 buildするときにはcmakeを使ってビルドしてください。Qt4が必要です。
+Windows,Macは基本的に適当な間隔でバイナリをDownloadsにアップデートしてるのでそれを利用することもできます。
+Linuxにはバイナリを用意していないのでソースコードをDLしてビルドしてください。
 
 **Note**  
 includeの問題は解決した。あとは音の問題 Linux環境上では音が途切れstdoutにエラー出力がされてしまいWindowsではおそらく今も音がならない。  
