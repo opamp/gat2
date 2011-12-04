@@ -5,7 +5,7 @@ gat2
 gat2はgatの続編です。前作のgatがあまりにもバグが多かったので全部作りなおしてます。  
 主に自分がカップ麺作るときとか、時間を測って勉強するときなどに使えるようにつくってます。  
   
-![Alt text](rsc/png/gat.png)
+![alt text](rsc/png/gat.png)
 
 
 **build**  
