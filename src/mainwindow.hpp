@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "mainwid.hpp"
+#include "config_dialog.hpp"
 
 class mainwindow : public QMainWindow
 {
@@ -16,6 +17,7 @@ protected:
 	};
 private:
     mainwid *w;
+    configDialog* config_editor;
 
     QMenu *help_bar;
     QMenu *config_app;
@@ -23,6 +25,7 @@ private:
     QAction *a_config;
 private slots:
     void about();
+    void callConfigDialog();
 
 signals:
 	void close_mainwid();
