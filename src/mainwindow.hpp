@@ -18,7 +18,9 @@ private:
     mainwid *w;
 
     QMenu *help_bar;
+    QMenu *config_app;
     QAction *a_about;
+    QAction *a_config;
 private slots:
     void about();
 
