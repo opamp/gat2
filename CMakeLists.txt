@@ -18,6 +18,6 @@ ELSE()
 	SET(P_UNIX OFF)
 	SET(P_WIN ON)
 ENDIF()
-CONFIGURE_FILE(${PROJECT_SOURCE_DIR}/config.hpp.in ${CMAKE_CURRENT_BINARY_DIR}/config.hpp)
+CONFIGURE_FILE(${PROJECT_SOURCE_DIR}/config.hpp.in ${CMAKE_CURRENT_BINARY_DIR}/config.hpp) #gen config.hpp file.
 
 INCLUDE(${PROJECT_SOURCE_DIR}/src/CMakeLists.txt)
