@@ -1,5 +1,6 @@
 #include "mainwid.hpp"
 #include <iostream>
+#include <config.hpp>
 
 mainwid::mainwid(QWidget *parent) :
     QWidget(parent)
@@ -161,7 +162,7 @@ void mainwid::takeOneSec(){
         if(tdata.decOneSec()){
             this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
         }else{
-		    delete callaudio;
+            delete callaudio;
             callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
             this->push_stop();
             callaudio->play();
