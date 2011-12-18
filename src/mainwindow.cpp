@@ -8,12 +8,12 @@ mainwindow::mainwindow()
     a_about = new QAction(tr("&About"),this);
     connect(a_about,SIGNAL(triggered()),this,SLOT(about()));
 
-    a_config = new QAction(tr("&config"),this);
+    a_config = new QAction(tr("&Preferences"),this);
     connect(a_config,SIGNAL(triggered()),this,SLOT(callConfigDialog()));
 
     help_bar = menuBar()->addMenu(tr("&Help and Info"));
     help_bar->addAction(a_about);
-    config_app = menuBar()->addMenu(tr("&Preferences"));
+    config_app = menuBar()->addMenu(tr("&Config"));
     config_app->addAction(a_config);
 
 
