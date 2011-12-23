@@ -21,6 +21,7 @@ mainwindow::mainwindow()
 
     setCentralWidget(w);
     setWindowTitle(tr("Gat2"));
+	setWindowIcon(QIcon(":/photos/p_icon_mini.png"));
 };
 
 void mainwindow::about(){

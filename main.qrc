@@ -1,5 +1,6 @@
 <RCC>
-    <qresource prefix="/audio">
-        <file>rsc/rsc.wav</file>
+    <qresource prefix="/photos">
+        <file>resource/p_icon.png</file>
+        <file>resource/p_icon_mini.png</file>
     </qresource>
 </RCC>
