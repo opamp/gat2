@@ -6,7 +6,7 @@ mainwindow::mainwindow()
     config_editor = new configDialog();
 
     a_about = new QAction(tr("&About"),this);
-	a_about->setIcon(QIcon(":/photos/p_icon_mini.png"));
+    a_about->setIcon(QIcon(":/photos/p_icon_mini2.png"));
     connect(a_about,SIGNAL(triggered()),this,SLOT(about()));
 
     a_config = new QAction(tr("&Preferences"),this);
