@@ -7,6 +7,7 @@ mainwindow::mainwindow()
 
     a_about = new QAction(tr("&About"),this);
     a_about->setIcon(QIcon(":/photos/resource/p_icon_mini2.png"));
+//    a_about->setIcon(QIcon(":/photos/resource/p_icon.png"));
     connect(a_about,SIGNAL(triggered()),this,SLOT(about()));
 
     a_config = new QAction(tr("&Preferences"),this);
