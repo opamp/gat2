@@ -16,7 +16,7 @@ mainwindow::mainwindow()
     help_bar = menuBar()->addMenu(tr("&Help and Info"));
     help_bar->addAction(a_about);
     config_app = menuBar()->addMenu(tr("&Config"));
-    config_app->addAction(a_config);
+    config_app->addAction(a_config); // configウィンドウにフリーズするバグあり
 
 
 	connect(this,SIGNAL(close_mainwid()),w,SLOT(delete_phonon_object()));
