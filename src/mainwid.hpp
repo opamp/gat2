@@ -3,6 +3,7 @@
 
 #include <QtGui>
 #include <config.hpp>
+#include "p.hpp"
 #include <phonon/mediaobject.h>
 #include "countdown_setting.hpp"
 #include "count_time_data.hpp"
@@ -50,6 +51,7 @@ private:
     QLCDNumber *all_s;
     QComboBox *mode_Set;
     QString current_mode_string;int current_mode;
+	QString audioFilePath;
     QPushButton *start,*stop,*pause,*config;
     countup_box *countup_msg;
     QTimer *t;
@@ -59,7 +61,7 @@ private:
 
     countdown_setting *countdownSetting;
 
-
+	bool readFromFile(QString&);
 };
 
 int HMSToSecond(const int,const int,const int);

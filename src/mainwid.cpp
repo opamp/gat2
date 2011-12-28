@@ -163,7 +163,9 @@ void mainwid::takeOneSec(){
             this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
         }else{
             delete callaudio;
-            callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
+			if(this->readFromFile(audioFilePath) != false){
+	            callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(audioFilePath));
+			}
             this->push_stop();
             callaudio->play();
         }
@@ -173,6 +175,17 @@ void mainwid::takeOneSec(){
     }
 }
 
+bool mainwid::readFromFile(QString& path){
+	QFile f(getSaveDir());
+	if(!f.open(QIODevice::ReadOnly | QIODevice::Text)){
+		return false; // error
+	}
+	QTextStream in(&f);
+	path = in.readLine();
+	return true;
+}
+
+
 int HMSToSecond(const int h,const int m,const int s){
 	int as = 0;
 	as = s;
@@ -180,4 +193,5 @@ int HMSToSecond(const int h,const int m,const int s){
 	as += h * 3600; // to sec
 	return as;
 }
+
 

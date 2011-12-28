@@ -5,8 +5,10 @@
 #include<QCoreApplication>
 
 #ifdef P_UNIX
+extern "C" {
 #include<sys/types.h>
 #include<pwd.h>
+}
 
 QString getHomeDir(){
 	struct passwd *p;

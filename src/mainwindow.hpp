@@ -1,7 +1,8 @@
 #ifndef MAINWINDOW_HPP
 #define MAINWINDOW_HPP
 
-#include <QMainWindow>
+//#include <QMainWindow>
+#include <QtGui>
 #include "mainwid.hpp"
 #include "config_dialog.hpp"
 
