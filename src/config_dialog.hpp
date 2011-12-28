@@ -1,11 +1,7 @@
 #ifndef CONFIG_DIALOG_HPP
 #define CONFIG_DIALOG_HPP
 #include<QtGui>
-
-/* 予定的ななにか 
- * ここで設定された内容は当初はsignalなどを使ってMainWindowに送る予定だったが、xmlに直接書き出して
- * 設定参照はxmlを読み込むことで行うようにしようか...
- */
+#include"p.hpp"
 
 class configDialog : public QDialog{
 Q_OBJECT

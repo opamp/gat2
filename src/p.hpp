@@ -1,14 +1,12 @@
 #ifndef P_HPP
 #define P_HPP
-#include<config.hpp>
-#include<QString>
-#include<QCoreApplication>
+#include <config.hpp>
+#include <QString>
+#include <QCoreApplication>
 
 #ifdef P_UNIX
-extern "C" {
-#include<sys/types.h>
-#include<pwd.h>
-}
+#include <sys/types.h>
+#include <pwd.h>
 
 QString getHomeDir(){
 	struct passwd *p;

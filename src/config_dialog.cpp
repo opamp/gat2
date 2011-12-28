@@ -1,5 +1,4 @@
 #include"config_dialog.hpp"
-#include"p.hpp"
 
 
 configDialog::configDialog(QWidget* parent):

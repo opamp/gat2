@@ -176,17 +176,17 @@ void mainwid::takeOneSec(){
     }
 }
 
-/*
 bool mainwid::readFromFile(QString& path){
+/*
 	QFile f(getSaveDir());
 	if(!f.open(QIODevice::ReadOnly | QIODevice::Text)){
 		return false; // error
 	}
 	QTextStream in(&f);
 	path = in.readLine();
+*/
 	return true;
 }
-*/
 
 int HMSToSecond(const int h,const int m,const int s){
 	int as = 0;
