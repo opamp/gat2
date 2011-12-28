@@ -29,13 +29,22 @@ void configDialog::audioFileEditCallPathDialogButton_is_Pushed(){
     if(audioFilePath.isEmpty()){
 
     }else{
+		/*このあたりに受け取ったオーディオファイルPATHをファイルに書きこむ処理が必要*/
         audioFileEdit->setText(audioFilePath);
         emit chAudioFile(audioFilePath);
+		this->writeToFile(audioFilePath);
     }
 };
 
-/*
-void configDialog::chAudiofileEdit(const QString& path){
-    audioFilePath = path;
+/*!
+ * pathでaudio fileへのPATHを受け取ってファイルに書き出す
+ */
+bool configDialog::writeToFile(const QString &path){
+	QFile f("out.text");
+	if(!f.open(QIODevice::Text | QIODevice::WriteOnly)){
+		return false;
+	}
+	QTextStream out(&f);
+	out<<path;
+	return true;
 };
-*/

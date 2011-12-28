@@ -24,5 +24,7 @@ private:
     QPushButton* audioFileEditCallPathDialogButton;
     QString audioFilePath;
 
+	bool writeToFile(const QString&);
+
 };
 #endif
