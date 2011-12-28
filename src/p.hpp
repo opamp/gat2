@@ -25,12 +25,14 @@ QString getSaveDir(){
 #endif
 #ifdef P_WIN
 
-QString& gehHomeDir(){
-	return QCoreApplication::applicationFilePath();
+QString getHomeDir(){
+	QString homepath = getenv("HOME");
+	return homepath;
 };
 
-QString& getSaveDir(){
-
+QString getSaveDir(){
+	QString savedir = getHomeDir();
+	savedir += "\\_gat2.conf"
 };
 #endif
 
