@@ -163,9 +163,10 @@ void mainwid::takeOneSec(){
             this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
         }else{
             delete callaudio;
-			if(this->readFromFile(audioFilePath) != false){
-	            callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(audioFilePath));
-			}
+//			if(this->readFromFile(audioFilePath) != false){
+//            callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(audioFilePath));
+            callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("/Users/opamp/vista-1.wav"));
+//			}
             this->push_stop();
             callaudio->play();
         }
@@ -175,6 +176,7 @@ void mainwid::takeOneSec(){
     }
 }
 
+/*
 bool mainwid::readFromFile(QString& path){
 	QFile f(getSaveDir());
 	if(!f.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -184,7 +186,7 @@ bool mainwid::readFromFile(QString& path){
 	path = in.readLine();
 	return true;
 }
-
+*/
 
 int HMSToSecond(const int h,const int m,const int s){
 	int as = 0;
