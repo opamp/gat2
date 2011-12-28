@@ -1,4 +1,5 @@
 #include"config_dialog.hpp"
+#include"p.hpp"
 
 
 configDialog::configDialog(QWidget* parent):
@@ -40,11 +41,11 @@ void configDialog::audioFileEditCallPathDialogButton_is_Pushed(){
  * pathでaudio fileへのPATHを受け取ってファイルに書き出す
  */
 bool configDialog::writeToFile(const QString &path){
-	QFile f("out.text");
+	QFile f(getSaveDir());
 	if(!f.open(QIODevice::Text | QIODevice::WriteOnly)){
-		return false;
+		return false; // 失敗
 	}
 	QTextStream out(&f);
 	out<<path;
-	return true;
+	return true; //成功
 };
