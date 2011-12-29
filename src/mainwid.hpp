@@ -2,7 +2,7 @@
 #define MAINWID_HPP
 
 #include <QtGui>
-//#include "p.hpp" // こいつかエラー原因...
+/*#include "p.hpp" こいつかエラー原因...*/
 #include <phonon/mediaobject.h>
 #include "countdown_setting.hpp"
 #include "count_time_data.hpp"

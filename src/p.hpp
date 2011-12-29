@@ -1,5 +1,6 @@
-#ifndef P_HPP
-#define P_HPP
+#pragma onece
+//#ifndef P_HPP
+//#define P_HPP
 #include <config.hpp>
 #include <QString>
 #include <QCoreApplication>
@@ -32,8 +33,8 @@ QString getHomeDir(){
 
 QString getSaveDir(){
 	QString savedir = getHomeDir();
-	savedir += "\\_gat2.conf"
+	savedir += "\\_gat2.conf";
 };
 #endif
 
-#endif // end of header.
+//#endif // end of header.
