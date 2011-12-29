@@ -1,6 +1,5 @@
-#pragma onece
-//#ifndef P_HPP
-//#define P_HPP
+#ifndef P_HPP
+#define P_HPP
 #include <config.hpp>
 #include <QString>
 #include <QCoreApplication>
@@ -37,4 +36,4 @@ QString getSaveDir(){
 };
 #endif
 
-//#endif // end of header.
+#endif // end of header.

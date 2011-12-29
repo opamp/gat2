@@ -1,7 +1,8 @@
 #ifndef CONFIG_DIALOG_HPP
 #define CONFIG_DIALOG_HPP
 #include<QtGui>
-#include"p.hpp"
+#include<config.hpp>
+//#include"p.hpp"
 
 class configDialog : public QDialog{
 Q_OBJECT
