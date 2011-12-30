@@ -3,7 +3,6 @@
 #include<QtGui>
 #include<QDir>
 #include<config.hpp>
-//#include"p.hpp"
 
 class configDialog : public QDialog{
 Q_OBJECT

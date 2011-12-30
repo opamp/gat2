@@ -17,7 +17,6 @@ SET(MHED
     ${SRC_DIR}/count_time_data.hpp
     ${SRC_DIR}/countup_box.hpp
     ${SRC_DIR}/config_dialog.hpp
-#   ${SRC_DIR}/p.hpp
     )
 
 QT4_WRAP_CPP(HMOD ${MHED})
