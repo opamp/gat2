@@ -4,7 +4,7 @@ countup_box::countup_box(QWidget* parent):
     QDialog(parent)
 {
     p = new QLabel(tr("unset data."));
-    b = new QPushButton("OK");
+    b = new QPushButton(tr("OK"));
     connect(b,SIGNAL(clicked()),this,SLOT(close()));
 
     QVBoxLayout *mainlayout = new QVBoxLayout();
@@ -12,7 +12,6 @@ countup_box::countup_box(QWidget* parent):
     mainlayout->addWidget(b);
 
     setLayout(mainlayout);
-
 }
 
 void countup_box::setData(ctd_d* td){

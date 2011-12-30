@@ -42,7 +42,6 @@ void configDialog::audioFileEditCallPathDialogButton_is_Pushed(){
 bool configDialog::writeToFile(const QString &path){
     QString saveDir = QDir::homePath();
     saveDir += "/.gat2.conf";
-//	QFile f(getSaveDir());
     QFile f(saveDir);
     if(!f.open(QIODevice::Text | QIODevice::WriteOnly)){
 		return false; // 失敗

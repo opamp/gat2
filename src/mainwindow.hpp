@@ -2,7 +2,6 @@
 #define MAINWINDOW_HPP
 
 #include <QMainWindow>
-//#include <QtGui>
 #include "mainwid.hpp"
 #include "config_dialog.hpp"
 
