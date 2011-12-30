@@ -1,6 +1,7 @@
 #ifndef CONFIG_DIALOG_HPP
 #define CONFIG_DIALOG_HPP
 #include<QtGui>
+#include<QDir>
 #include<config.hpp>
 //#include"p.hpp"
 

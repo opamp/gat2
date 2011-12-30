@@ -40,20 +40,8 @@ void configDialog::audioFileEditCallPathDialogButton_is_Pushed(){
  * pathでaudio fileへのPATHを受け取ってファイルに書き出す
  */
 bool configDialog::writeToFile(const QString &path){
-    QString saveDir;
-#ifdef P_UNIX
-// if os is unix.
-#include <cstdlib>
-#include <sys/types.h>
-#include <pwd.h>
-	struct passwd *p;
-	p = getpwuid(getuid());
-    saveDir = p->pw_dir;
+    QString saveDir = QDir::homePath();
     saveDir += "/.gat2.conf";
-#endif
-#ifdef P_WIN
-// if os is win.
-#endif
 //	QFile f(getSaveDir());
     QFile f(saveDir);
     if(!f.open(QIODevice::Text | QIODevice::WriteOnly)){
