@@ -40,7 +40,8 @@ mainwid::mainwid(QWidget *parent) :
     mainlayout->addLayout(buttonLayout);
 
     setLayout(mainlayout);
-    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
+//    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
+    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
 }
 
 void mainwid::init_mode_Set(){
@@ -163,12 +164,13 @@ void mainwid::takeOneSec(){
             this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
         }else{
             delete callaudio;
-//			if(this->readFromFile(audioFilePath) != false){
-//            callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(audioFilePath));
-            callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("/Users/opamp/vista-1.wav"));
-//			}
+			if(this->readFromFile(audioFilePath) != false){
+		         callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(audioFilePath));
+				 callaudio->play();
+			}else{
+			    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
+			}
             this->push_stop();
-            callaudio->play();
         }
         break;
     case CUSTOM_COUNT_M:
@@ -177,14 +179,14 @@ void mainwid::takeOneSec(){
 }
 
 bool mainwid::readFromFile(QString& path){
-/*
-	QFile f(getSaveDir());
+    QString saveDir = QDir::homePath();
+    saveDir += "/.gat2.conf";
+	QFile f(saveDir);
 	if(!f.open(QIODevice::ReadOnly | QIODevice::Text)){
 		return false; // error
 	}
 	QTextStream in(&f);
 	path = in.readLine();
-*/
 	return true;
 }
 

@@ -31,7 +31,7 @@ IF(WIN32)
     ADD_EXECUTABLE(gat WIN32 ${SRCS})
 ELSEIF(APPLE)
     SET(SRCS ${SRCS} ${PROJECT_SOURCE_DIR}/src/resource/mac/p_icon.icns)
-    SET(MACOSX_BUNDLE_ICON_FILE ${PROJECT_SOURCE_DIR}/src/resource/mac/p_icon.icns)
+	SET(MACOSX_BUNDLE_ICON_FILE ${PROJECT_SOURCE_DIR}/src/resource/mac/p_icon.icns)
     SET_SOURCE_FILES_PROPERTIES(${PROJECT_SOURCE_DIR}/src/resource/mac/p_icon.icns PROPERTIES
 	    MACOSX_PACKAGE_LOCATION Resources)
    ADD_EXECUTABLE(gat MACOSX_BUNDLE ${SRCS})
