@@ -4,9 +4,21 @@
 configDialog::configDialog(QWidget* parent):
     QDialog(parent)
 {
+    audioFileEdit = new QLineEdit();audioFileEdit->setReadOnly(true);
+    QString saveDir = QDir::homePath();
+    saveDir += "/.gat2.conf";
+    QFile file(saveDir);
+    if(!file.open(QIODevice::Text | QIODevice::WriteOnly)){
+        file.close();
+    }else{
+        QTextStream in(&file);
+        QString path = in.readLine();
+        audioFileEdit->setText(path);
+        file.close();
+    }
+
     QString a = QCoreApplication::applicationFilePath();
     audioFileEditLabel = new QLabel(tr("audio file"));
-    audioFileEdit = new QLineEdit();audioFileEdit->setReadOnly(true);
     audioFileEditCallPathDialogButton = new QPushButton(tr("Choice"));
 
     connect(audioFileEditCallPathDialogButton,SIGNAL(clicked()),this,SLOT(audioFileEditCallPathDialogButton_is_Pushed()));
@@ -29,10 +41,9 @@ void configDialog::audioFileEditCallPathDialogButton_is_Pushed(){
     if(audioFilePath.isEmpty()){
 
     }else{
-		/*このあたりに受け取ったオーディオファイルPATHをファイルに書きこむ処理が必要*/
         audioFileEdit->setText(audioFilePath);
         emit chAudioFile(audioFilePath);
-		this->writeToFile(audioFilePath);
+        this->writeToFile(audioFilePath);
     }
 };
 
