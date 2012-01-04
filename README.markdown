@@ -25,7 +25,7 @@ MacOSXならm4aなども再生可能。
 BSDライセンスです
 
 
-Copyright (c) 2011, opamp
+Copyright (c) 2011-2012, opamp
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without  
