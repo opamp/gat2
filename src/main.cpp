@@ -12,6 +12,7 @@ int main(int argc,char* argv[]){
 	QSize mainwindow_size(default_width_size,default_height_size);
     mainwindow* window = new mainwindow();
 	window->setMinimumSize(mainwindow_size);
+//	window->setMaximumSize(mainwindow_size); // If this line is enable,you cannot change WindowSize.
     window->show();
 
     return gat.exec();
