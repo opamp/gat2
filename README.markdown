@@ -6,6 +6,7 @@ gat2はgatの続編です。前作のgatがあまりにもバグが多かった�
 主に自分がカップ麺作るときとか、時間を測って勉強するときなどに使えるようにつくってます。  
 
 
+
 ![alt text](http://dl.dropbox.com/u/23369413/pictures/gat2/png/gat.png)  
 ArchLinux(のKDE環境)での動作画像
 
