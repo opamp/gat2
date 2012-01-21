@@ -57,7 +57,7 @@ void mainwid::init_mode_Set(){
 void mainwid::init_buttons(){
     start = new QPushButton(tr("Start"));
     stop = new QPushButton(tr("Stop"));
-    pause = new QPushButton(tr("Pause"));
+    pause = new QPushButton(tr("Pause"));//Give way.
     config = new QPushButton(tr("Setting"));
     pause->setEnabled(false);
     stop->setEnabled(false);
