@@ -182,7 +182,7 @@ bool mainwid::readFromFile(QString& path){
     QString saveDir = QDir::homePath();
     saveDir += "/.gat2.conf";
 	QFile f(saveDir);
-	if(!f.open(QIODevice::ReadOnly | QIODevice::Text)){
+	if(!f.open(QIODevice::ReadOnly)){// | QIODevice::Text)){
 		return false; // error
 	}
 	QTextStream in(&f);

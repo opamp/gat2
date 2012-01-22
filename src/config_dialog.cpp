@@ -1,4 +1,5 @@
 #include"config_dialog.hpp"
+#include <iostream>
 
 
 configDialog::configDialog(QWidget* parent):
@@ -38,6 +39,7 @@ configDialog::configDialog(QWidget* parent):
 
 void configDialog::audioFileEditCallPathDialogButton_is_Pushed(){
     audioFilePath = QFileDialog::getOpenFileName(this,tr("Open File"),".",tr("Audio File (*)"));
+	std::cout<<audioFilePath.toStdString()<<std::endl;
     if(audioFilePath.isEmpty()){
 
     }else{
