@@ -10,7 +10,10 @@ gat2はgatの続編です。前作のgatがあまりにもバグが多かった�
 ![alt text](http://dl.dropbox.com/u/23369413/pictures/gat2/png/gat1.png)  
 ArchLinux(のKDE環境)での動作画像
 
-
+**Dependence**   
+[Qt](http://qt.nokia.com/).
+License is [LGPLv2](http://www.gnu.org/licenses/lgpl-2.1.html)   
+    
 **build**  
 buildするときにはcmakeを使ってビルドしてください。Qt4が必要です。  
 現在MacOSX Lion対応中です。あと、MacOSXバイナリにも修正が必要のようなので一旦MacOSXバイナリの配布を中止します。   
