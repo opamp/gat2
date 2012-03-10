@@ -30,7 +30,7 @@ void mainwindow::about(){
     QMessageBox::about(this,tr("About Gat2"),
             tr("<h2>Gat2</h2>"
                "<p>Copyright (c) 2011-2012 opamp"
-               "<p>version:: 2.3.1 BETA")); // version
+               "<p>version:: 2.4.0")); // version
 };
 
 void mainwindow::callConfigDialog(){
