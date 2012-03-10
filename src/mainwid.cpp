@@ -5,6 +5,10 @@
 mainwid::mainwid(QWidget *parent) :
     QWidget(parent)
 {
+	sysTrayIcon = new QSystemTrayIcon(QIcon(":/photos/resource/p_icon.png"));
+	sysTrayIcon->setVisible(true);//show!!
+	sysTrayIcon->showMessage(tr("gat2"),tr("Welcome gat2!"),QSystemTrayIcon::Information,2500);
+
     countdownSetting = new countdown_setting(&tdata);
     connect(countdownSetting,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
     connect(&tdata,SIGNAL(changeValue(int,int,int)),this,SLOT(refLCD(int,int,int)));

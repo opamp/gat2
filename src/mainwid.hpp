@@ -2,6 +2,7 @@
 #define MAINWID_HPP
 
 #include <QtGui>
+#include <QSystemTrayIcon>
 #include <phonon/mediaobject.h>
 #include "countdown_setting.hpp"
 #include "count_time_data.hpp"
@@ -60,6 +61,8 @@ private:
     countdown_setting *countdownSetting;
 
 	bool readFromFile(QString&);
+
+	QSystemTrayIcon* sysTrayIcon;
 };
 
 int HMSToSecond(const int,const int,const int);
