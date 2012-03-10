@@ -9,6 +9,9 @@ int main(int argc,char* argv[]){
     QApplication gat(argc,argv);
 	gat.setApplicationName("gat2");
 
+	QTextCodec::setCodecForTr(QTextCodec::codecForLocale());
+	QTextCodec::setCodecForCStrings(QTextCodec::codecForLocale());
+
 	QSize mainwindow_size(default_width_size,default_height_size);
     mainwindow* window = new mainwindow();
 	window->setMinimumSize(mainwindow_size);
