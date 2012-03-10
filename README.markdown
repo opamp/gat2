@@ -1,7 +1,7 @@
 gat2
 ====
 
-**about**  
+##about   
 gat2はgatの続編です。前作のgatがあまりにもバグが多かったので全部作りなおしてます。  
 主に自分がカップ麺作るときとか、時間を測って勉強するときなどに使えるようにつくってます。  
 
@@ -10,11 +10,11 @@ gat2はgatの続編です。前作のgatがあまりにもバグが多かった�
 ![alt text](http://dl.dropbox.com/u/23369413/pictures/gat2/png/gat1.png)  
 ArchLinux(のKDE環境)での動作画像
 
-**Dependence**   
+##Dependence   
 [Qt](http://qt.nokia.com/).
 License is [LGPLv2](http://www.gnu.org/licenses/lgpl-2.1.html)   
     
-**build**   
+##build   
 ビルドするにはCMake(2.8.5 or later)がビルドする環境で利用可能である必要があります。CMakeは以下のURLからDLできます。   
 
 http://www.cmake.org/   
@@ -56,7 +56,7 @@ Macの場合はgat.appというファイルになっているのでmake install�
 また、Windowsの場合はMinGWなどを使ってビルドできると思います。(VC++は推奨しません)   
 Windowsの場合cmakeはコマンドラインよりGUIツールを利用したほうがいいかもしれないです。   
 
-**Note**  
+##Note  
 Windows7環境でテストして頂いたところ、幾つかバグらしきものが発見されているようです。  
 Windows7はうちに環境がないので確認や訂正ができません...   
 			
@@ -65,7 +65,7 @@ Windows7はうちに環境がないので確認や訂正ができません...
 また、音声周りが未だに不十分なので徐々に改良していきます。   
 
   
-**LICENSE**    
+##LICENSE   
 BSDライセンスです
 
 
