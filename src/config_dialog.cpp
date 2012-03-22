@@ -9,7 +9,6 @@ configDialog::configDialog(QWidget* parent):
     QString saveDir = QDir::homePath();
     saveDir += "/.gat2.conf";
     QFile file(saveDir);
-//    if(!file.open(QIODevice::Text | QIODevice::WriteOnly)){
     if(!file.open(QIODevice::Text | QIODevice::ReadOnly)){
         file.close();
     }else{
