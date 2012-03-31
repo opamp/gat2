@@ -1,9 +1,11 @@
 #include "AboutWidget.hpp"
+#include "version.hpp"
 #include <iostream>
 
 gat_about_widget::gat_about_widget(QWidget* parent):
 	QWidget(parent)
 {
+    QString v = gat_version;
     licenseView = new QTextEdit();
     QFile lFile(":/text/resource/text/LICENSE");
     if(!lFile.open(QFile::Text | QFile::ReadOnly)){
@@ -15,11 +17,12 @@ gat_about_widget::gat_about_widget(QWidget* parent):
         lFile.close();
         licenseView->setReadOnly(true);
     }
+    QString versioninfo_str = "<h2>Version ::" + v + "</h2>";
 
     closeButton = new QPushButton(tr("OK"));
 
     appName = new QLabel(tr("<h1>gat2 - It is a simple timer - </h1>"));
-    versionInfo = new QLabel(tr("<h2>Version :: 2.4.1 </h2>"));
+    versionInfo = new QLabel(versioninfo_str);
     repoUrl = new QLabel(tr("https://github.com/opamp/gat2"));
 
     connect(closeButton,SIGNAL(clicked()),this,SLOT(close()));
@@ -39,7 +42,7 @@ gat_about_widget::gat_about_widget(QWidget* parent):
 void gat_about_widget::to_stdOut(){
     using namespace std;
     cout<<"Gat2 - It is simple timer."<<endl<<
-          "version 2.4.1"<<endl<<endl;
+          "version :: "<<gat_version<<endl<<endl;
     cout<<"source code : https://github.com/opamp/gat2"<<endl<<
           "You can clone gat2 repository"<<endl<<
           "-> \"git clone git://github.com/opamp/gat2.git\""<<endl<<endl;
