@@ -7,6 +7,7 @@ SET(MSRC
     ${SRC_DIR}/count_time_data.cpp
     ${SRC_DIR}/countup_box.cpp
     ${SRC_DIR}/config_dialog.cpp
+    ${SRC_DIR}/AboutWidget.cpp
 	)
 
 SET(MHED
@@ -17,6 +18,7 @@ SET(MHED
     ${SRC_DIR}/count_time_data.hpp
     ${SRC_DIR}/countup_box.hpp
     ${SRC_DIR}/config_dialog.hpp
+    ${SRC_DIR}/AboutWidget.hpp
     )
 
 QT4_WRAP_CPP(HMOD ${MHED})

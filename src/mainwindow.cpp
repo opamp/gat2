@@ -4,6 +4,7 @@ mainwindow::mainwindow()
 {
     w = new mainwid();
     config_editor = new configDialog();
+    about_widget = new gat_about_widget();
 
     a_about = new QAction(tr("&About"),this);
     a_about->setIcon(QIcon(":/photos/resource/p_icon_mini2.png"));
@@ -27,10 +28,8 @@ mainwindow::mainwindow()
 };
 
 void mainwindow::about(){
-    QMessageBox::about(this,tr("About Gat2"),
-            tr("<h2>Gat2</h2>"
-               "<p>Copyright (c) 2011-2012 opamp"
-               "<p>version:: 2.4.1")); // version
+    about_widget->show();
+    about_widget->to_stdOut();
 };
 
 void mainwindow::callConfigDialog(){

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "mainwid.hpp"
 #include "config_dialog.hpp"
+#include "AboutWidget.hpp"
 
 class mainwindow : public QMainWindow
 {
@@ -17,7 +18,8 @@ protected:
 	};
 private:
     mainwid *w;
-    configDialog* config_editor;
+    configDialog *config_editor;
+    gat_about_widget *about_widget;
 
     QMenu *help_bar;
     QMenu *config_app;

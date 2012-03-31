@@ -4,4 +4,7 @@
         <file>resource/p_icon_mini.png</file>
         <file>resource/p_icon_mini2.png</file>
     </qresource>
+    <qresource prefix="/text">
+        <file>resource/text/LICENSE</file>
+    </qresource>
 </RCC>
