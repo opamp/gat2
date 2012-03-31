@@ -1,11 +1,22 @@
 #include <QApplication>
 #include <QSize>
+#include <cstdio>
+#include <cstring>
 #include "mainwindow.hpp"
+#include "version.hpp"
 
 #define default_width_size 450
 #define default_height_size 250
 
 int main(int argc,char* argv[]){
+	for(int n = 1;n < argc;n++){
+		if(strcmp(argv[n],"-v") == 0 || strcmp(argv[n],"--version") == 0){
+			printf("gat2 version :: %s\n",gat_version);
+			printf("See also \"About Page\".\n");
+			return 0;
+		}
+	}
+	printf("start gat2.\n");
     QApplication gat(argc,argv);
 	gat.setApplicationName("gat2");
 
