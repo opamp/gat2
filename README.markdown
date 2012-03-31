@@ -8,7 +8,7 @@ gat2はgatの続編です。前作のgatがあまりにもバグが多かった�
 
 
 ![alt text](http://dl.dropbox.com/u/23369413/pictures/gat2/png/gat1.png)  
-ArchLinux(のKDE環境)での動作画像
+MacOSX Lionでの動作画像
 
 ##Dependence   
 [Qt](http://qt.nokia.com/).
