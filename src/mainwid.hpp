@@ -7,6 +7,7 @@
 #include "countdown_setting.hpp"
 #include "count_time_data.hpp"
 #include "countup_box.hpp"
+#include "customCounter.hpp"
 
 /*
 必要なボタンは 一時停止(再開) 中止 開始 かぬ あと 予約 か
@@ -59,6 +60,8 @@ private:
     Phonon::MediaObject *callaudio;
 
     countdown_setting *countdownSetting;
+	
+	customCounter *c_counter;
 
 	bool readFromFile(QString&);
 

@@ -9,7 +9,9 @@ mainwid::mainwid(QWidget *parent) :
 	sysTrayIcon->setVisible(true);//show!!
 	sysTrayIcon->showMessage(tr("gat2"),tr("Welcome to gat2!"),QSystemTrayIcon::Information,1500);
 
+	c_counter = new customCounter();
     countdownSetting = new countdown_setting(&tdata);
+	connect(c_counter,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
     connect(countdownSetting,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
     connect(&tdata,SIGNAL(changeValue(int,int,int)),this,SLOT(refLCD(int,int,int)));
     this->init_buttons();
@@ -83,6 +85,8 @@ void mainwid::mode_change(int m){
         countdownSetting->show();
         break;
     case CUSTOM_COUNT_M:
+        setEnabled(false);
+		c_counter->show();
         break;
     }
 }
