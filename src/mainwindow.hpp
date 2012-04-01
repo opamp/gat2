@@ -14,14 +14,21 @@ public:
 
 protected:
     void closeEvent(QCloseEvent* ce){
-        //setVisible(false);
-        //ce->ignore();
-        emit close_mainwid();
+        if(real_close == false){
+            setVisible(false);
+            ce->ignore();
+        }else{
+            emit close_mainwid();
+            ce->accept();
+        }
     };
 
 public slots:
     void userCall();
+    void closeApplication();
+    void changeVisible();
 private:
+    bool real_close;
     mainwid *w;
     configDialog *config_editor;
     gat_about_widget *about_widget;
@@ -30,8 +37,11 @@ private:
     QMenu *config_app;
     QAction *a_about;
     QAction *a_config;
+    QAction *a_close;
 
-    QSystemTrayIcon* sysTrayIcon;
+    QSystemTrayIcon *sysTrayIcon;
+    QMenu *sTaryIcon_Menu;
+    QAction *vSwitch;
 private slots:
     void about();
     void callConfigDialog();

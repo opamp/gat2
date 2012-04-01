@@ -5,13 +5,9 @@
 mainwid::mainwid(QWidget *parent) :
     QWidget(parent)
 {
-/*	sysTrayIcon = new QSystemTrayIcon(QIcon(":/photos/resource/p_icon.png"));
-	sysTrayIcon->setVisible(true);//show!!
-    sysTrayIcon->showMessage(tr("gat2"),tr("Welcome to gat2!"),QSystemTrayIcon::Information,1500);*/
-
-	c_counter = new customCounter();
+    c_counter = new customCounter();
     countdownSetting = new countdown_setting(&tdata);
-	connect(c_counter,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
+    connect(c_counter,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
     connect(countdownSetting,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
     connect(&tdata,SIGNAL(changeValue(int,int,int)),this,SLOT(refLCD(int,int,int)));
     this->init_buttons();
@@ -46,7 +42,7 @@ mainwid::mainwid(QWidget *parent) :
     mainlayout->addLayout(buttonLayout);
 
     setLayout(mainlayout);
-//    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
+//  callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
     callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
 }
 
@@ -178,7 +174,6 @@ void mainwid::takeOneSec(){
 			}else{
 			    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
 			}
-            //sysTrayIcon->showMessage(tr("Gat2"),tr("Countdown is finished."),QSystemTrayIcon::Information,5000);
             emit finishCountDown();
             this->push_stop();
         }
