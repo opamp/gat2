@@ -40,6 +40,7 @@ mainwindow::mainwindow()
     config_app->addAction(a_config);
     sTaryIcon_Menu = new QMenu(tr("ContextMenu"));
     sTaryIcon_Menu->addAction(showTime);
+    sTaryIcon_Menu->addSeparator();
     sTaryIcon_Menu->addAction(vSwitch);
     sTaryIcon_Menu->addAction(a_close);
     sysTrayIcon->setContextMenu(sTaryIcon_Menu);
