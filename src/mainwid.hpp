@@ -22,9 +22,12 @@ class mainwid : public QWidget
     Q_OBJECT
 public:
     explicit mainwid(QWidget *parent = 0);
-    
+
+    ctd_d* get_ctd_d(){return &tdata;};
+
 signals:
     void finishCountDown();
+    void change_ctd_d(const ctd_d*);
     
 public slots:
     void unsetDisable(){

@@ -1,16 +1,18 @@
 #include "mainwindow.hpp"
-
+#include<cstring>
 #include<cstdio>
 
 mainwindow::mainwindow()
 {
     real_close = false;
     w = new mainwid();
+    connect(w,SIGNAL(change_ctd_d(const ctd_d*)),this,SLOT(changeTrayTime(const ctd_d*)));
 
     sysTrayIcon = new QSystemTrayIcon(QIcon(":/photos/resource/p_icon.png"));
     sysTrayIcon->setVisible(true);//show!!
     sysTrayIcon->showMessage(tr("gat2"),tr("Welcome to gat2!"),QSystemTrayIcon::Information,1500);
     connect(w,SIGNAL(finishCountDown()),this,SLOT(userCall()));
+
 
     config_editor = new configDialog();
     about_widget = new gat_about_widget();
@@ -28,11 +30,16 @@ mainwindow::mainwindow()
     vSwitch = new QAction(tr("gat2"),this);
     connect(vSwitch,SIGNAL(triggered()),this,SLOT(changeVisible()));
 
+    showTime = new QAction(tr("-----"),this);
+    connect(showTime,SIGNAL(triggered()),this,SLOT(timeMessage()));
+
+
     help_bar = menuBar()->addMenu(tr("&Help and Info"));
     help_bar->addAction(a_about);
     config_app = menuBar()->addMenu(tr("&Config"));
     config_app->addAction(a_config);
     sTaryIcon_Menu = new QMenu(tr("ContextMenu"));
+    sTaryIcon_Menu->addAction(showTime);
     sTaryIcon_Menu->addAction(vSwitch);
     sTaryIcon_Menu->addAction(a_close);
     sysTrayIcon->setContextMenu(sTaryIcon_Menu);
@@ -56,6 +63,41 @@ void mainwindow::closeApplication(){
 
 void mainwindow::changeVisible(){
     setVisible(!this->isVisible());
+};
+
+void mainwindow::timeMessage(){
+    QString msg;char buf[5];
+    sprintf(buf,"%d",w->get_ctd_d()->get_h());
+    msg += buf;
+
+    msg += " : ";
+
+    sprintf(buf,"%d",w->get_ctd_d()->get_m());
+    msg += buf;
+
+    msg += " : ";
+
+    sprintf(buf,"%d",w->get_ctd_d()->get_s());
+    msg += buf;
+    sysTrayIcon->showMessage(tr("TIME"),msg,QSystemTrayIcon::Information,5000);
+};
+
+
+void mainwindow::changeTrayTime(const ctd_d* data){
+    QString msg;char buf[5];
+    sprintf(buf,"%d",w->get_ctd_d()->get_h());
+    msg += buf;
+
+    msg += " : ";
+
+    sprintf(buf,"%d",w->get_ctd_d()->get_m());
+    msg += buf;
+
+    msg += " : ";
+
+    sprintf(buf,"%d",w->get_ctd_d()->get_s());
+    msg += buf;
+    this->showTime->setText(msg);
 };
 
 void mainwindow::about(){

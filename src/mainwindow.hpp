@@ -27,6 +27,7 @@ public slots:
     void userCall();
     void closeApplication();
     void changeVisible();
+    void timeMessage();
 private:
     bool real_close;
     mainwid *w;
@@ -42,9 +43,11 @@ private:
     QSystemTrayIcon *sysTrayIcon;
     QMenu *sTaryIcon_Menu;
     QAction *vSwitch;
+    QAction *showTime;
 private slots:
     void about();
     void callConfigDialog();
+    void changeTrayTime(const ctd_d*);
 
 signals:
 	void close_mainwid();

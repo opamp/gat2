@@ -181,6 +181,7 @@ void mainwid::takeOneSec(){
     case CUSTOM_COUNT_M:
         break;
     }
+    emit change_ctd_d(&tdata);
 }
 
 bool mainwid::readFromFile(QString& path){
