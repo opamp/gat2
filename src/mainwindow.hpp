@@ -13,9 +13,14 @@ public:
     mainwindow();
 
 protected:
-	void closeEvent(QCloseEvent* ce){
-		emit close_mainwid();
-	};
+    void closeEvent(QCloseEvent* ce){
+        //setVisible(false);
+        //ce->ignore();
+        emit close_mainwid();
+    };
+
+public slots:
+    void userCall();
 private:
     mainwid *w;
     configDialog *config_editor;
@@ -25,6 +30,8 @@ private:
     QMenu *config_app;
     QAction *a_about;
     QAction *a_config;
+
+    QSystemTrayIcon* sysTrayIcon;
 private slots:
     void about();
     void callConfigDialog();

@@ -3,6 +3,14 @@
 mainwindow::mainwindow()
 {
     w = new mainwid();
+
+    sysTrayIcon = new QSystemTrayIcon(QIcon(":/photos/resource/p_icon.png"));
+    sysTrayIcon->setVisible(true);//show!!
+    sysTrayIcon->showMessage(tr("gat2"),tr("Welcome to gat2!"),QSystemTrayIcon::Information,1500);
+
+    connect(w,SIGNAL(finishCountDown()),this,SLOT(userCall()));
+
+
     config_editor = new configDialog();
     about_widget = new gat_about_widget();
 
@@ -19,12 +27,16 @@ mainwindow::mainwindow()
     config_app->addAction(a_config); // configウィンドウにフリーズするバグあり(Windows Only?)
 
 
-	connect(this,SIGNAL(close_mainwid()),w,SLOT(delete_phonon_object()));
+    connect(this,SIGNAL(close_mainwid()),w,SLOT(delete_phonon_object()));
 
     setCentralWidget(w);
     setWindowTitle(tr("Gat2"));
 //    setWindowIcon(QIcon(":/photos/resource/p_icon_mini2.png"));
     setWindowIcon(QIcon(":/photos/resource/p_icon.png"));
+};
+
+void mainwindow::userCall(){
+    sysTrayIcon->showMessage(tr("Gat2"),tr("Countdown is finished."),QSystemTrayIcon::Information,5000);
 };
 
 void mainwindow::about(){

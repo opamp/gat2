@@ -24,6 +24,7 @@ public:
     explicit mainwid(QWidget *parent = 0);
     
 signals:
+    void finishCountDown();
     
 public slots:
     void unsetDisable(){
@@ -65,7 +66,7 @@ private:
 
 	bool readFromFile(QString&);
 
-	QSystemTrayIcon* sysTrayIcon;
+//	QSystemTrayIcon* sysTrayIcon;
 };
 
 int HMSToSecond(const int,const int,const int);

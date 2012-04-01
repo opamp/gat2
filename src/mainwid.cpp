@@ -5,9 +5,9 @@
 mainwid::mainwid(QWidget *parent) :
     QWidget(parent)
 {
-	sysTrayIcon = new QSystemTrayIcon(QIcon(":/photos/resource/p_icon.png"));
+/*	sysTrayIcon = new QSystemTrayIcon(QIcon(":/photos/resource/p_icon.png"));
 	sysTrayIcon->setVisible(true);//show!!
-	sysTrayIcon->showMessage(tr("gat2"),tr("Welcome to gat2!"),QSystemTrayIcon::Information,1500);
+    sysTrayIcon->showMessage(tr("gat2"),tr("Welcome to gat2!"),QSystemTrayIcon::Information,1500);*/
 
 	c_counter = new customCounter();
     countdownSetting = new countdown_setting(&tdata);
@@ -178,7 +178,8 @@ void mainwid::takeOneSec(){
 			}else{
 			    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
 			}
-			sysTrayIcon->showMessage(tr("Gat2"),tr("Countdown is finished."),QSystemTrayIcon::Information,5000);
+            //sysTrayIcon->showMessage(tr("Gat2"),tr("Countdown is finished."),QSystemTrayIcon::Information,5000);
+            emit finishCountDown();
             this->push_stop();
         }
         break;
