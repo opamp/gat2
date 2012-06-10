@@ -5,9 +5,6 @@ gat2
 gat2はgatの続編です。前作のgatがあまりにもバグが多かったので全部作りなおしてます。  
 主に自分がカップ麺作るときとか、時間を測って勉強するときなどに使えるようにつくってます。  
 
-Android移植版の開発に着手してみました。(現在未完成で使えませんが)   
-[for Android](https://github.com/opamp/gat2-for-Android)   
-
 
 ![alt text](http://dl.dropbox.com/u/23369413/pictures/gat2/png/gat1.png)  
 MacOSX Lionでの動作画像
