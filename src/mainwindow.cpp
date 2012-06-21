@@ -34,7 +34,7 @@ mainwindow::mainwindow()
     connect(showTime,SIGNAL(triggered()),this,SLOT(timeMessage()));
 
 
-    help_bar = menuBar()->addMenu(tr("&Help and Info"));
+    help_bar = menuBar()->addMenu(tr("&gat2"));
     help_bar->addAction(a_about);
 	help_bar->addAction(a_close);
     config_app = menuBar()->addMenu(tr("&Config"));
