@@ -36,6 +36,7 @@ mainwindow::mainwindow()
 
     help_bar = menuBar()->addMenu(tr("&Help and Info"));
     help_bar->addAction(a_about);
+	help_bar->addAction(a_close);
     config_app = menuBar()->addMenu(tr("&Config"));
     config_app->addAction(a_config);
     sTaryIcon_Menu = new QMenu(tr("ContextMenu"));
