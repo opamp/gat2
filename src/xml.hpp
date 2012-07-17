@@ -1,5 +1,6 @@
 #ifndef XML_HPP
 #define XML_HPP
+#include<QString>
 #include<QtXml>
 #include<QDomDocument>
 #include<QDomNode>
@@ -9,6 +10,7 @@ class XmlParser{
 public:
 	XmlParser(){};
 
+	void open(QString&);
 };
 
 #endif

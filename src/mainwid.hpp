@@ -8,6 +8,7 @@
 #include "count_time_data.hpp"
 #include "countup_box.hpp"
 #include "customCounter.hpp"
+#include "version.hpp"
 
 /*
 必要なボタンは 一時停止(再開) 中止 開始 かぬ あと 予約 か
