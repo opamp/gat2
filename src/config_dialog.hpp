@@ -14,12 +14,14 @@ signals:
 
 protected slots:
     void audioFileEditCallPathDialogButton_is_Pushed();
-//    void chAudiofileEdit(const QString&);
+	void notificationCheckChanged(int);
 private:
     QLabel* audioFileEditLabel;
     QLineEdit* audioFileEdit;
     QPushButton* audioFileEditCallPathDialogButton;
     QString audioFilePath;
+
+	QCheckBox* notificationCheck;
 
 	bool writeToFile(const QString&);
 

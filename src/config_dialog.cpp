@@ -23,15 +23,23 @@ configDialog::configDialog(QWidget* parent):
     audioFileEditCallPathDialogButton = new QPushButton(tr("Choice"));
 
     connect(audioFileEditCallPathDialogButton,SIGNAL(clicked()),this,SLOT(audioFileEditCallPathDialogButton_is_Pushed()));
-//    connect(audioFileEdit,SIGNAL(textEdited(const QString&)),this,SLOT(chAudiofileEdit(const QString&)));
+
+	notificationCheck = new QCheckBox("Notification");
+	connect(notificationCheck,SIGNAL(stateChanged(int)),this,SLOT(notificationCheckChanged(int)));
+
 
     QHBoxLayout *audioFileEditLayout = new QHBoxLayout();
     audioFileEditLayout->addWidget(audioFileEditLabel);
     audioFileEditLayout->addWidget(audioFileEdit);
     audioFileEditLayout->addWidget(audioFileEditCallPathDialogButton);
 
+	QVBoxLayout *checkboxes = new QVBoxLayout();
+	checkboxes->addWidget(notificationCheck);
+
     QVBoxLayout *mainLayout = new QVBoxLayout();
     mainLayout->addLayout(audioFileEditLayout);
+	mainLayout->addSpacing(12);
+	mainLayout->addLayout(checkboxes);
 
     setLayout(mainLayout);
 };
@@ -63,3 +71,7 @@ bool configDialog::writeToFile(const QString &path){
 	out<<path;
 	return true; //成功
 };
+
+void configDialog::notificationCheckChanged(int n){
+	std::cout<<"notification check box is changed.["<<n<<"]"<<std::endl;
+}
