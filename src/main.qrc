@@ -7,4 +7,7 @@
     <qresource prefix="/text">
         <file>resource/text/LICENSE</file>
     </qresource>
+	<qresource prefix="/xmls">
+		<file>resource/xmls/template.xml</file>
+	</qresource>
 </RCC>

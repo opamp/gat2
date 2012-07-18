@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF8"?>
+<gat>
+	<file>
+		<AlarmFile></AlarmFile>
+	</file>
+
+	<checkbox>
+		<notification enable="true"/>
+	</checkbox>
+</gat>
