@@ -24,6 +24,7 @@ int main(int argc,char* argv[]){
 	printf("start gat2.\n");
 	
 	if(checkxml() == 1){
+		fprintf(stderr,"ERROR::Gat could not create $HOME/.gat.xml file.\n");
 		exit(1);
 	}
 
@@ -44,7 +45,6 @@ int main(int argc,char* argv[]){
 
 int checkxml(){
 	if(QFile::exists(config_file_path) == true) return 0;
-
 	QFile::copy(template_xml,config_file_path);
 	printf("Generate new xml config file.\n");
 	if(QFile::exists(config_file_path) == true) return 0;
