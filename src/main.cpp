@@ -1,12 +1,17 @@
 #include <QApplication>
+#include <QFile>
+#include <QDir>
 #include <QSize>
 #include <cstdio>
 #include <cstring>
+#include <string>
 #include "mainwindow.hpp"
 #include "version.hpp"
 
 #define default_width_size 450
 #define default_height_size 250
+
+int checkxml();
 
 int main(int argc,char* argv[]){
 	for(int n = 1;n < argc;n++){
@@ -17,6 +22,9 @@ int main(int argc,char* argv[]){
 		}
 	}
 	printf("start gat2.\n");
+	
+	checkxml();
+
     QApplication gat(argc,argv);
 	gat.setApplicationName("gat2");
 
@@ -30,4 +38,11 @@ int main(int argc,char* argv[]){
     window->show();
 
     return gat.exec();
+}
+
+int checkxml(){
+	QFile file(config_file_path);
+	if(file.exists() == true) return 0;
+
+
 }

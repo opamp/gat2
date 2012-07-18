@@ -5,11 +5,11 @@ bool XmlParser::open(QString& p){
 	QString error;int errorline;int errorColmun;
 	QFile file(p);
 
-	if(!f.open(QIODevice::ReadWrite)){
+	if(!file.open(QIODevice::ReadWrite)){
 		return false;
     }
 
 
-	f.close();
+	file.close();
 	return true;
 }
