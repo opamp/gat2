@@ -23,7 +23,9 @@ int main(int argc,char* argv[]){
 	}
 	printf("start gat2.\n");
 	
-	checkxml();
+	if(checkxml() == 1){
+		exit(1);
+	}
 
     QApplication gat(argc,argv);
 	gat.setApplicationName("gat2");
@@ -41,8 +43,10 @@ int main(int argc,char* argv[]){
 }
 
 int checkxml(){
-	QFile file(config_file_path);
-	if(file.exists() == true) return 0;
+	if(QFile::exists(config_file_path) == true) return 0;
 
-
+	QFile::copy(template_xml,config_file_path);
+	printf("Generate new xml config file.\n");
+	if(QFile::exists(config_file_path) == true) return 0;
+	else return 1;
 }
