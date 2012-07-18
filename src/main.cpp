@@ -24,6 +24,7 @@ int main(int argc,char* argv[]){
 	printf("start gat2.\n");
 	
 	if(checkxml() == 1){
+		/*設定ファイル(xml)が生成できなかった場合の処理*/
 		fprintf(stderr,"ERROR::Gat could not create $HOME/.gat.xml file.\n");
 		exit(1);
 	}

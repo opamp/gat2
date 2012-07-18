@@ -2,6 +2,7 @@
 #define XML_HPP
 #include<QString>
 #include<QFile>
+#include<QMap>
 #include<QtXml>
 #include<QDomDocument>
 #include<QDomNode>
