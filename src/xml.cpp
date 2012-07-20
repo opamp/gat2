@@ -69,3 +69,19 @@ void XmlParser::parseCheckbox(QDomNode n){
 		node = node.nextSibling();
 	}
 }
+
+
+void XmlParser::setAlarmFile(QString& filename){
+	if(filename.isEmpty() == false){
+		alarmFile = filename;
+	}
+}
+
+void XmlParser::setCheckbox(QString& v,bool b){
+	if(checkboxes.contains(v))
+		checkboxes[v] = b;
+}
+
+bool save(){
+
+}

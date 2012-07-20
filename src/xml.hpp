@@ -17,6 +17,10 @@ public:
 	void close();
 
 	bool loadXmlData();
+
+	void setAlarmFile(QString&);
+	void setCheckbox(QString&,bool);
+	bool save();
 private:
 	void parseFile(QDomNode);
 	void parseCheckbox(QDomNode);
