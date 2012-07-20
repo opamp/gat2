@@ -103,7 +103,11 @@ bool XmlParser::save(){
 
 	QDomElement checkboxElement = doc.createElement("checkbox");
 	QDomElement notificationElement = doc.createElement("notification");
-	notificationElement.setAttribute(QString::fromStdString("enable"),checkboxes["notification"]);
+	if(checkboxes["notification"] == true){
+		notificationElement.setAttribute(QString::fromStdString("enable"),"true");
+	}else{
+		notificationElement.setAttribute(QString::fromStdString("enable"),"false");
+	}
 	newroot.appendChild(checkboxElement);
 	checkboxElement.appendChild(notificationElement);
 
