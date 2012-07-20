@@ -82,7 +82,7 @@ bool configDialog::writeToFile(const QString &path){
 	xf.loadXmlData();
 	xf.setAlarmFile(path);
 	xf.save();
-	xf.close();
+	//xf.close();
 	return true;
 };
 

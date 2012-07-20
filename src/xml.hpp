@@ -15,7 +15,7 @@ public:
 	void initConfigData();
 
 	bool open(const QString&);
-	void close();
+//	void close();
 
 	bool loadXmlData();
 
@@ -26,8 +26,9 @@ private:
 	void parseFile(QDomNode);
 	void parseCheckbox(QDomNode);
 
-	QFile* file;
+	QString fp;
 	QDomDocument doc;
+//	QFile* file;
 
 protected:
 	QMap<QString,bool> checkboxes;

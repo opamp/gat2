@@ -47,6 +47,7 @@ int main(int argc,char* argv[]){
 int checkxml(){
 	if(QFile::exists(config_file_path) == true) return 0;
 	QFile::copy(template_xml,config_file_path);
+	QFile::setPermissions(config_file_path,QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser);
 	printf("Generate new xml config file.\n");
 	if(QFile::exists(config_file_path) == true) return 0;
 	else return 1;

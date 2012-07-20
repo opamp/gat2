@@ -1,6 +1,7 @@
 #include "xml.hpp"
 #include<QTextStream>
 #include<iostream>
+#include<QIODevice>
 
 #define save_xml_indent 4
 
@@ -9,24 +10,24 @@ void XmlParser::initConfigData(){
 }
 
 bool XmlParser::open(const QString& p){
-	file = new QFile();
+	fp = p;
+	QFile file(fp);
 	QString error;int errorline;int errorColmun;
-	file->setFileName(p);
-	if(!file->open(QIODevice::ReadWrite)){
+//	file->setFileName(p);
+	if(!file.open(QIODevice::ReadOnly)){
+		std::cout<<"fail to file open. file path is "<<p.toStdString()<<std::endl;
 		return false;
     }
-	if(!doc.setContent(file,true,&error,&errorline,&errorColmun)){
-		file->close();
+	if(!doc.setContent(&file,true,&error,&errorline,&errorColmun)){
+		file.close();
+		std::cout<<"fail to doc.setContent"<<std::endl;
 		return false;
 	}
 
-
+	file.close();
 	return true;
 }
 
-void XmlParser::close(){
-	file->close();
-}
 
 bool XmlParser::loadXmlData(){
 	QDomElement root = doc.documentElement();
@@ -106,7 +107,9 @@ bool XmlParser::save(){
 	newroot.appendChild(checkboxElement);
 	checkboxElement.appendChild(notificationElement);
 
-	QTextStream out(file);
+	QFile file(fp);
+	file.open(QIODevice::WriteOnly);
+	QTextStream out(&file);
 	doc.save(out,save_xml_indent);
 	return true;
 }
