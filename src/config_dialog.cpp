@@ -1,4 +1,5 @@
 #include"config_dialog.hpp"
+#include"xml.hpp"
 #include <iostream>
 
 
@@ -61,6 +62,7 @@ void configDialog::audioFileEditCallPathDialogButton_is_Pushed(){
  * pathでaudio fileへのPATHを受け取ってファイルに書き出す
  */
 bool configDialog::writeToFile(const QString &path){
+	/*old
     QString saveDir = QDir::homePath();
     saveDir += "/.gat2.conf";
     QFile f(saveDir);
@@ -70,6 +72,17 @@ bool configDialog::writeToFile(const QString &path){
 	QTextStream out(&f);
 	out<<path;
 	return true; //成功
+	*/
+
+	XmlParser xf;
+	if(xf.open(config_file_path) == false){
+		std::cout<<"fail to save xml"<<std::endl;
+		return false;
+	}
+	xf.setAlarmFile(path);
+	xf.save();
+	xf.close();
+	return true;
 };
 
 void configDialog::notificationCheckChanged(int n){

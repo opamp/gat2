@@ -7,7 +7,7 @@ void XmlParser::initConfigData(){
 	checkboxes["notification"] = true;
 }
 
-bool XmlParser::open(QString& p){
+bool XmlParser::open(const QString& p){
 	QString error;int errorline;int errorColmun;
 	file->setFileName(p);
 	if(!file->open(QIODevice::ReadWrite)){
@@ -74,7 +74,7 @@ void XmlParser::parseCheckbox(QDomNode n){
 }
 
 
-void XmlParser::setAlarmFile(QString& filename){
+void XmlParser::setAlarmFile(const QString& filename){
 	alarmFile = filename;
 }
 

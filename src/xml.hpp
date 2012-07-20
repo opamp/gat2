@@ -11,15 +11,15 @@
 
 class XmlParser{
 public:
-	XmlParser(){initConfigData();};
+	XmlParser(){initConfigData();loadXmlData();};
 	void initConfigData();
 
-	bool open(QString&);
+	bool open(const QString&);
 	void close();
 
 	bool loadXmlData();
 
-	void setAlarmFile(QString&);
+	void setAlarmFile(const QString&);
 	void setCheckbox(QString&,bool);
 	bool save();
 private:
