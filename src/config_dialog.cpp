@@ -79,6 +79,7 @@ bool configDialog::writeToFile(const QString &path){
 		std::cout<<"fail to save xml"<<std::endl;
 		return false;
 	}
+	xf.loadXmlData();
 	xf.setAlarmFile(path);
 	xf.save();
 	xf.close();

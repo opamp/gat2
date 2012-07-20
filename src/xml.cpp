@@ -1,5 +1,6 @@
 #include "xml.hpp"
 #include<QTextStream>
+#include<iostream>
 
 #define save_xml_indent 4
 
@@ -8,6 +9,7 @@ void XmlParser::initConfigData(){
 }
 
 bool XmlParser::open(const QString& p){
+	file = new QFile();
 	QString error;int errorline;int errorColmun;
 	file->setFileName(p);
 	if(!file->open(QIODevice::ReadWrite)){
