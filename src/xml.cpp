@@ -115,6 +115,7 @@ bool XmlParser::save(){
 	file.open(QIODevice::WriteOnly);
 	QTextStream out(&file);
 	doc.save(out,save_xml_indent);
+	file.close();
 	return true;
 }
 

@@ -22,6 +22,14 @@ public:
 	void setAlarmFile(const QString&);
 	void setCheckbox(QString&,bool);
 	bool save();
+
+	QString getAlarmFile(){return alarmFile;};
+	bool* getCheckbox(QString& t){
+		if(checkboxes.contains(t))
+			return &checkboxes["t"];
+		else
+			return NULL;
+	};
 private:
 	void parseFile(QDomNode);
 	void parseCheckbox(QDomNode);

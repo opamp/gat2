@@ -7,6 +7,12 @@ configDialog::configDialog(QWidget* parent):
     QDialog(parent)
 {
     audioFileEdit = new QLineEdit();audioFileEdit->setReadOnly(true);
+	
+	XmlParser xf;
+	xf.open(config_file_path);
+	xf.loadXmlData();
+	audioFileEdit->setText(xf.getAlarmFile());
+/*old
     QString saveDir = QDir::homePath();
     saveDir += "/.gat2.conf";
     QFile file(saveDir);
@@ -18,6 +24,7 @@ configDialog::configDialog(QWidget* parent):
         audioFileEdit->setText(path);
         file.close();
     }
+*/
 
     QString a = QCoreApplication::applicationFilePath();
     audioFileEditLabel = new QLabel(tr("audio file"));
@@ -82,7 +89,6 @@ bool configDialog::writeToFile(const QString &path){
 	xf.loadXmlData();
 	xf.setAlarmFile(path);
 	xf.save();
-	//xf.close();
 	return true;
 };
 
