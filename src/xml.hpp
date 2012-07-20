@@ -10,9 +10,23 @@
 
 class XmlParser{
 public:
-	XmlParser(){};
+	XmlParser(){initConfigData();};
+	void initConfigData();
 
 	bool open(QString&);
+	void close();
+
+	bool loadXmlData();
+private:
+	void parseFile(QDomNode);
+	void parseCheckbox(QDomNode);
+
+	QFile* file;
+	QDomDocument doc;
+
+protected:
+	QMap<QString,bool> checkboxes;
+	QString alarmFile;
 };
 
 #endif
