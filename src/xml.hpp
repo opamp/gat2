@@ -11,8 +11,7 @@
 
 class XmlParser{
 public:
-	XmlParser(){initConfigData();};
-	void initConfigData();
+	XmlParser(){};
 
 	bool open(const QString&);
 //	void close();

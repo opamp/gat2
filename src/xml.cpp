@@ -5,9 +5,6 @@
 
 #define save_xml_indent 4
 
-void XmlParser::initConfigData(){
-	checkboxes["notification"] = true;
-}
 
 bool XmlParser::open(const QString& p){
 	fp = p;
