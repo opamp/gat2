@@ -7,6 +7,7 @@
 #include<QDomDocument>
 #include<QDomNode>
 #include<QDomElement>
+#include<QDomText>
 
 class XmlParser{
 public:

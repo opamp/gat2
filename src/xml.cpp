@@ -1,4 +1,7 @@
 #include "xml.hpp"
+#include<QTextStream>
+
+#define save_xml_indent 4
 
 void XmlParser::initConfigData(){
 	checkboxes["notification"] = true;
@@ -72,9 +75,7 @@ void XmlParser::parseCheckbox(QDomNode n){
 
 
 void XmlParser::setAlarmFile(QString& filename){
-	if(filename.isEmpty() == false){
-		alarmFile = filename;
-	}
+	alarmFile = filename;
 }
 
 void XmlParser::setCheckbox(QString& v,bool b){
@@ -82,6 +83,29 @@ void XmlParser::setCheckbox(QString& v,bool b){
 		checkboxes[v] = b;
 }
 
-bool save(){
+bool XmlParser::save(){
+	QDomElement root = doc.documentElement();
+	if(root.tagName().toStdString() != "gat"){
+		return false;
+	}
+	QDomElement newroot = doc.createElement("gat");
+	doc.replaceChild(newroot,root);
 
+	QDomElement fileElement = doc.createElement("file");
+	QDomElement alarmElement = doc.createElement("AlarmFile");
+	QDomText alarmtext = doc.createTextNode(this->alarmFile);
+	newroot.appendChild(fileElement);
+	fileElement.appendChild(alarmElement);
+	alarmElement.appendChild(alarmtext);
+
+	QDomElement checkboxElement = doc.createElement("checkbox");
+	QDomElement notificationElement = doc.createElement("notification");
+	notificationElement.setAttribute(QString::fromStdString("enable"),checkboxes["notification"]);
+	newroot.appendChild(checkboxElement);
+	checkboxElement.appendChild(notificationElement);
+
+	QTextStream out(file);
+	doc.save(out,save_xml_indent);
+	return true;
 }
+
