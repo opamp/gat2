@@ -24,11 +24,9 @@ public:
 	bool save();
 
 	QString getAlarmFile(){return alarmFile;};
-	bool* getCheckbox(QString& t){
-		if(checkboxes.contains(t))
-			return &checkboxes["t"];
-		else
-			return NULL;
+
+	bool getCheckbox(QString t){
+		return &checkboxes["t"];
 	};
 private:
 	void parseFile(QDomNode);

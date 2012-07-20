@@ -8,23 +8,21 @@ configDialog::configDialog(QWidget* parent):
 {
     audioFileEdit = new QLineEdit();audioFileEdit->setReadOnly(true);
 	
+	notificationCheck = new QCheckBox("Notification");
+	connect(notificationCheck,SIGNAL(stateChanged(int)),this,SLOT(notificationCheckChanged(int)));
+	
+		/*xml read*/	
 	XmlParser xf;
 	xf.open(config_file_path);
 	xf.loadXmlData();
 	audioFileEdit->setText(xf.getAlarmFile());
-/*old
-    QString saveDir = QDir::homePath();
-    saveDir += "/.gat2.conf";
-    QFile file(saveDir);
-    if(!file.open(QIODevice::Text | QIODevice::ReadOnly)){
-        file.close();
-    }else{
-        QTextStream in(&file);
-        QString path = in.readLine();
-        audioFileEdit->setText(path);
-        file.close();
-    }
-*/
+
+	if(xf.getCheckbox(QString::fromStdString("notification")) == true){
+		notificationCheck->setChecked(true);
+	}else{
+		notificationCheck->setChecked(false);
+	}
+		/*--------*/
 
     QString a = QCoreApplication::applicationFilePath();
     audioFileEditLabel = new QLabel(tr("audio file"));
@@ -32,8 +30,6 @@ configDialog::configDialog(QWidget* parent):
 
     connect(audioFileEditCallPathDialogButton,SIGNAL(clicked()),this,SLOT(audioFileEditCallPathDialogButton_is_Pushed()));
 
-	notificationCheck = new QCheckBox("Notification");
-	connect(notificationCheck,SIGNAL(stateChanged(int)),this,SLOT(notificationCheckChanged(int)));
 
 
     QHBoxLayout *audioFileEditLayout = new QHBoxLayout();
@@ -69,18 +65,6 @@ void configDialog::audioFileEditCallPathDialogButton_is_Pushed(){
  * pathでaudio fileへのPATHを受け取ってファイルに書き出す
  */
 bool configDialog::writeToFile(const QString &path){
-	/*old
-    QString saveDir = QDir::homePath();
-    saveDir += "/.gat2.conf";
-    QFile f(saveDir);
-    if(!f.open(QIODevice::Text | QIODevice::WriteOnly)){
-		return false; // 失敗
-	}
-	QTextStream out(&f);
-	out<<path;
-	return true; //成功
-	*/
-
 	XmlParser xf;
 	if(xf.open(config_file_path) == false){
 		std::cout<<"fail to save xml"<<std::endl;
@@ -93,5 +77,18 @@ bool configDialog::writeToFile(const QString &path){
 };
 
 void configDialog::notificationCheckChanged(int n){
+	QString s = "notification";
 	std::cout<<"notification check box is changed.["<<n<<"]"<<std::endl;
+	XmlParser xf;
+	if(xf.open(config_file_path) == false){
+		std::cout<<"fail to save xml"<<std::endl;
+		return;
+	}
+	xf.loadXmlData();
+	if(n == 0){
+		xf.setCheckbox(s,false);
+	}else{
+		xf.setCheckbox(s,true);
+	}
+	xf.save();
 }

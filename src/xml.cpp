@@ -83,7 +83,8 @@ void XmlParser::setAlarmFile(const QString& filename){
 
 void XmlParser::setCheckbox(QString& v,bool b){
 	if(checkboxes.contains(v))
-		checkboxes[v] = b;
+		checkboxes.insert(v,b);
+	std::cout<<"b="<<b<<"ch="<<checkboxes[v]<<std::endl;
 }
 
 bool XmlParser::save(){
