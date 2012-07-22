@@ -24,7 +24,7 @@ public:
 	QString getAlarmFile(){return alarmFile;};
 
 	bool getCheckbox(QString t){
-		return &checkboxes["t"];
+		return checkboxes[t];
 	};
 private:
 	void parseFile(QDomNode);
