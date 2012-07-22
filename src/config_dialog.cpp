@@ -87,8 +87,10 @@ void configDialog::notificationCheckChanged(int n){
 	xf.loadXmlData();
 	if(n == 0){
 		xf.setCheckbox(s,false);
+		emit chNotificationCheckBox(false);
 	}else{
 		xf.setCheckbox(s,true);
+		emit chNotificationCheckBox(true);
 	}
 	xf.save();
 }

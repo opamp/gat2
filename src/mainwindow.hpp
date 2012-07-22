@@ -29,6 +29,7 @@ public slots:
     void changeVisible();
     void timeMessage();
 private:
+	bool enableSysTray;
     bool real_close;
     mainwid *w;
     configDialog *config_editor;
@@ -48,6 +49,7 @@ private slots:
     void about();
     void callConfigDialog();
     void changeTrayTime(const ctd_d*);
+	void changeNotificationCheckBox(bool);
 
 signals:
 	void close_mainwid();

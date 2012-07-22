@@ -1,20 +1,28 @@
 #include "mainwindow.hpp"
+#include "xml.hpp"
 #include<cstring>
 #include<cstdio>
 
 mainwindow::mainwindow()
 {
+	XmlParser xf;
+	xf.open(config_file_path);
+	xf.loadXmlData();
+	enableSysTray = xf.getCheckbox(QString::fromStdString("notification"));
+
     real_close = false;
     w = new mainwid();
     connect(w,SIGNAL(change_ctd_d(const ctd_d*)),this,SLOT(changeTrayTime(const ctd_d*)));
 
     sysTrayIcon = new QSystemTrayIcon(QIcon(":/photos/resource/p_icon.png"));
     sysTrayIcon->setVisible(true);//show!!
-    sysTrayIcon->showMessage(tr("gat2"),tr("Welcome to gat2!"),QSystemTrayIcon::Information,1500);
+	if(enableSysTray)
+		sysTrayIcon->showMessage(tr("gat2"),tr("Welcome to gat2!"),QSystemTrayIcon::Information,1500);
     connect(w,SIGNAL(finishCountDown()),this,SLOT(userCall()));
 
 
     config_editor = new configDialog();
+	connect(config_editor,SIGNAL(chNotificationCheckBox(bool)),this,SLOT(changeNotificationCheckBox(bool)));
     about_widget = new gat_about_widget();
 
     a_about = new QAction(tr("&About"),this);
@@ -54,7 +62,8 @@ mainwindow::mainwindow()
 };
 
 void mainwindow::userCall(){
-    sysTrayIcon->showMessage(tr("Gat2"),tr("Countdown is finished."),QSystemTrayIcon::Information,5000);
+	if(enableSysTray)
+		sysTrayIcon->showMessage(tr("Gat2"),tr("Countdown is finished."),QSystemTrayIcon::Information,5000);
 };
 
 void mainwindow::closeApplication(){
@@ -81,7 +90,8 @@ void mainwindow::timeMessage(){
 
     sprintf(buf,"%d",w->get_ctd_d()->get_s());
     msg += buf;
-    sysTrayIcon->showMessage(tr("TIME"),msg,QSystemTrayIcon::Information,5000);
+	if(enableSysTray)
+		sysTrayIcon->showMessage(tr("TIME"),msg,QSystemTrayIcon::Information,5000);
 };
 
 
@@ -109,4 +119,8 @@ void mainwindow::about(){
 
 void mainwindow::callConfigDialog(){
     config_editor->show();
+};
+
+void mainwindow::changeNotificationCheckBox(bool b){
+	this->enableSysTray = b;
 };

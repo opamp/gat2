@@ -12,6 +12,7 @@ public:
 
 signals:
     void chAudioFile(QString const&);
+	void chNotificationCheckBox(bool);
 
 protected slots:
     void audioFileEditCallPathDialogButton_is_Pushed();
