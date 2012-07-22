@@ -1,4 +1,5 @@
 #include "mainwid.hpp"
+#include "xml.hpp"
 #include <iostream>
 #include <config.hpp>
 
@@ -185,14 +186,12 @@ void mainwid::takeOneSec(){
 }
 
 bool mainwid::readFromFile(QString& path){
-    QString saveDir = QDir::homePath();
-    saveDir += "/.gat2.conf";
-	QFile f(saveDir);
-	if(!f.open(QIODevice::ReadOnly)){// | QIODevice::Text)){
-		return false; // error
+	XmlParser xf;
+	if(xf.open(config_file_path) == false){
+		return false;
 	}
-	QTextStream in(&f);
-	path = in.readLine();
+	xf.loadXmlData();
+	path = xf.getAlarmFile();
 	return true;
 }
 

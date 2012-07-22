@@ -14,7 +14,6 @@ public:
 	XmlParser(){};
 
 	bool open(const QString&);
-//	void close();
 
 	bool loadXmlData();
 
