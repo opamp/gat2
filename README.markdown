@@ -51,7 +51,7 @@ DLはgitがなくてもgithubからzipなどでDLできるのでそれを利用�
 #####次に、作業用ディレクトリを作りcmakeを実行します。   
 
 	$ cd gat2   
-	$ git checkout -b build 2.5.2  
+	$ git checkout -b build 2.5.3  
 	$ mkdir build   
 	$ cd build   
 
