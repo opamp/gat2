@@ -8,6 +8,8 @@ class countdown_setting : public QDialog
 Q_OBJECT
 public:
     countdown_setting(ctd_d*,QWidget* parent = 0);
+	
+	void show();
 protected:
     void closeEvent(QCloseEvent* ce){this->push_ok();};
 
@@ -17,8 +19,6 @@ private slots:
     void m_change(int);
     void s_change(int);
 
-public slots:
-	void show();
 
 signals:
     void finishSetting();
