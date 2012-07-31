@@ -25,11 +25,11 @@ ArchLinux(Xfce)での動作画像
 	Project名をgat2じゃなくてgatにするかも。  
 	全体的なリファクタリング...   
 
-##Dependence   
+##Dependencies
 [Qt](http://qt.nokia.com/).
 License is [LGPLv2](http://www.gnu.org/licenses/lgpl-2.1.html)   
     
-##build   
+##Building gat
 ビルドするにはCMake(2.8.5 or later)がビルドする環境で利用可能である必要があります。CMakeは以下のURLからDLできます。   
 
 http://www.cmake.org/   
