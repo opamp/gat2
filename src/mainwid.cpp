@@ -21,8 +21,6 @@ mainwid::mainwid(QWidget *parent) :
 
     pause_f = false;
 
-
-
     QVBoxLayout *mainlayout = new QVBoxLayout();
     QHBoxLayout *sublayout = new QHBoxLayout();
     QHBoxLayout *buttonLayout = new QHBoxLayout();
@@ -61,7 +59,7 @@ void mainwid::init_buttons(){
     start = new QPushButton(tr("Start"));
     stop = new QPushButton(tr("Stop"));
     pause = new QPushButton(tr("Pause"));//Give way.
-    config = new QPushButton(tr("Setting"));
+    config = new QPushButton(tr("Set Timer"));
     pause->setEnabled(false);
     stop->setEnabled(false);
     connect(start,SIGNAL(clicked()),this,SLOT(push_start()));
