@@ -16,7 +16,9 @@ private slots:
     void h_change(int);
     void m_change(int);
     void s_change(int);
-    void show();
+
+public slots:
+	void show();
 
 signals:
     void finishSetting();
