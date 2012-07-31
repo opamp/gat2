@@ -32,7 +32,7 @@ mainwindow::mainwindow()
     a_config = new QAction(tr("&Preferences"),this);
     connect(a_config,SIGNAL(triggered()),this,SLOT(callConfigDialog()));
 
-    a_close = new QAction(tr("&close"),this);
+    a_close = new QAction(tr("&Close"),this);
     connect(a_close,SIGNAL(triggered()),this,SLOT(closeApplication()));
 
     vSwitch = new QAction(tr("gat2"),this);
@@ -45,7 +45,7 @@ mainwindow::mainwindow()
     help_bar = menuBar()->addMenu(tr("&gat2"));
     help_bar->addAction(a_about);
 	help_bar->addAction(a_close);
-    config_app = menuBar()->addMenu(tr("&Config"));
+    config_app = menuBar()->addMenu(tr("&Options"));
     config_app->addAction(a_config);
     sTaryIcon_Menu = new QMenu(tr("ContextMenu"));
     sTaryIcon_Menu->addAction(showTime);
@@ -63,7 +63,7 @@ mainwindow::mainwindow()
 
 void mainwindow::userCall(){
 	if(enableSysTray)
-		sysTrayIcon->showMessage(tr("Gat2"),tr("Countdown is finished."),QSystemTrayIcon::Information,5000);
+		sysTrayIcon->showMessage(tr("Gat2"),tr("Countdown complete."),QSystemTrayIcon::Information,5000);
 };
 
 void mainwindow::closeApplication(){

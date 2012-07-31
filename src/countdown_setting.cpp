@@ -6,7 +6,7 @@ countdown_setting::countdown_setting(ctd_d* d,QWidget *parent):
     timedata = d;
     timedata->set_h(0);
     timedata->set_m(0);
-    timedata->set_s(1);
+    timedata->set_s(0);
     hb = new QSpinBox();hb->setMinimum(0);
     mb = new QSpinBox();mb->setMinimum(0);
     sb = new QSpinBox();sb->setMinimum(0);
@@ -42,6 +42,7 @@ countdown_setting::countdown_setting(ctd_d* d,QWidget *parent):
 void countdown_setting::h_change(int h){
     timedata->set_h(h);
 }
+
 void countdown_setting::m_change(int m){
     if(m >= 60){
         timedata->set_m(0);
@@ -52,6 +53,7 @@ void countdown_setting::m_change(int m){
         timedata->set_m(m);
     }
 }
+
 void countdown_setting::s_change(int s){
     if(s >= 60){
         timedata->set_s(0);
@@ -63,9 +65,17 @@ void countdown_setting::s_change(int s){
     }
 }
 
-
-
 void countdown_setting::push_ok(){
     emit finishSetting();
     this->setVisible(false);
+}
+
+// Update the values automatically.
+void countdown_setting::show() {
+    sb->setValue(timedata->get_s());
+    mb->setValue(timedata->get_m());
+    hb->setValue(timedata->get_h());
+
+    // Continue the call to the parent class.
+    QDialog::show();
 }
