@@ -21,7 +21,7 @@ gat_about_widget::gat_about_widget(QWidget* parent):
 
     closeButton = new QPushButton(tr("OK"));
 
-    appName = new QLabel(tr("<h1>gat2 - It is a simple timer - </h1>"));
+    appName = new QLabel(tr("<h1>gat2 - A Simple Timer - </h1>"));
     versionInfo = new QLabel(versioninfo_str);
     repoUrl = new QLabel(tr("https://github.com/opamp/gat2"));
 
@@ -41,11 +41,11 @@ gat_about_widget::gat_about_widget(QWidget* parent):
 
 void gat_about_widget::to_stdOut(){
     using namespace std;
-    cout<<"Gat2 - It is simple timer."<<endl<<
+    cout<<"Gat2 - A Simple Timer"<<endl<<
           "version :: "<<gat_version<<endl<<endl;
-    cout<<"source code : https://github.com/opamp/gat2"<<endl<<
-          "You can clone gat2 repository"<<endl<<
-          "-> \"git clone git://github.com/opamp/gat2.git\""<<endl<<endl;
+    cout<<"Source Code : https://github.com/opamp/gat2"<<endl<<
+          "You can clone the gat2 repository with:"<<endl<<
+          "  -> \"git clone git://github.com/opamp/gat2.git\""<<endl<<endl;
     cout<<licenseView->toPlainText().toStdString()<<endl;
 };
 

@@ -67,7 +67,7 @@ void configDialog::audioFileEditCallPathDialogButton_is_Pushed(){
 bool configDialog::writeToFile(const QString &path){
 	XmlParser xf;
 	if(xf.open(config_file_path) == false){
-		std::cout<<"fail to save xml"<<std::endl;
+		std::cout<<"Failed to save xml"<<std::endl;
 		return false;
 	}
 	xf.loadXmlData();
@@ -78,10 +78,10 @@ bool configDialog::writeToFile(const QString &path){
 
 void configDialog::notificationCheckChanged(int n){
 	QString s = "notification";
-	std::cout<<"notification check box is changed.["<<n<<"]"<<std::endl;
+	std::cout<<"Notification check box changed.["<<n<<"]"<<std::endl;
 	XmlParser xf;
 	if(xf.open(config_file_path) == false){
-		std::cout<<"fail to save xml"<<std::endl;
+		std::cout<<"Failed to save xml"<<std::endl;
 		return;
 	}
 	xf.loadXmlData();
