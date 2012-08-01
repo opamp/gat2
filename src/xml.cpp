@@ -12,12 +12,12 @@ bool XmlParser::open(const QString& p){
 	QString error;int errorline;int errorColmun;
 //	file->setFileName(p);
 	if(!file.open(QIODevice::ReadOnly)){
-		std::cout<<"fail to file open. file path is "<<p.toStdString()<<std::endl;
+		std::cout<<"Failed to file open. The file path is "<<p.toStdString()<<std::endl;
 		return false;
     }
 	if(!doc.setContent(&file,true,&error,&errorline,&errorColmun)){
 		file.close();
-		std::cout<<"fail to doc.setContent"<<std::endl;
+		std::cout<<"doc.setContent failed"<<std::endl;
 		return false;
 	}
 
