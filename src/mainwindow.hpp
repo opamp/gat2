@@ -28,6 +28,8 @@ public slots:
     void closeApplication();
     void changeVisible();
     void timeMessage();
+	void changeWindowTitle(QString);
+
 private:
 	bool enableSysTray;
     bool real_close;

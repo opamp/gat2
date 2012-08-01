@@ -88,7 +88,6 @@ void mainwid::mode_change(int m){
 
 void mainwid::push_start(){
 //    delete callaudio;
-    pause_f = false;
     start->setEnabled(false);
     config->setEnabled(false);
     pause->setEnabled(true);
@@ -107,6 +106,8 @@ void mainwid::push_start(){
 }
 
 void mainwid::push_stop(){
+    pause_f = false;
+	emit change_pause_f(tr("Gat2"));
     start->setEnabled(true);
     config->setEnabled(true);
     pause->setEnabled(false);
@@ -129,11 +130,14 @@ void mainwid::push_stop(){
 
 }
 
-void mainwid::push_pause(){
-    if(pause_f)
+void mainwid::push_pause(){ //pauseボタンが押されたとき呼ばれる
+    if(pause_f){//pause_f(pause_flag)がtrueならpauseしている。
         pause_f = false;
-    else
+		emit change_pause_f(tr("Gat2"));
+	}else{
         pause_f = true;
+		emit change_pause_f(tr("Gat2 [pause]"));
+	}
 }
 
 void mainwid::push_setting(){

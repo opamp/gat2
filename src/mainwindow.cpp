@@ -13,6 +13,7 @@ mainwindow::mainwindow()
     real_close = false;
     w = new mainwid();
     connect(w,SIGNAL(change_ctd_d(const ctd_d*)),this,SLOT(changeTrayTime(const ctd_d*)));
+	connect(w,SIGNAL(change_pause_f(QString)),this,SLOT(changeWindowTitle(QString)));
 
     sysTrayIcon = new QSystemTrayIcon(QIcon(":/photos/resource/p_icon.png"));
     sysTrayIcon->setVisible(true);//show!!
@@ -110,6 +111,10 @@ void mainwindow::changeTrayTime(const ctd_d* data){
     sprintf(buf,"%d",w->get_ctd_d()->get_s());
     msg += buf;
     this->showTime->setText(msg);
+};
+
+void mainwindow::changeWindowTitle(QString str){
+	setWindowTitle(str);	
 };
 
 void mainwindow::about(){
