@@ -2,7 +2,7 @@
 #define GAT_VERSION_HPP
 #include<QString>
 
-#define gat_version "2.5.4"
+#define gat_version "2.5.5 TEST"
 
 const QString config_file_name = ".gat.xml";
 const QString config_file_path = QString::fromStdString(QDir::homePath().toStdString() + "/" + config_file_name.toStdString());

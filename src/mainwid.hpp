@@ -10,10 +10,6 @@
 #include "customCounter.hpp"
 #include "version.hpp"
 
-/*
-必要なボタンは 一時停止(再開) 中止 開始 かぬ あと 予約 か
-*/
-
 #define COUNT_UP_M 0
 #define COUNT_DOWN_M 1
 #define CUSTOM_COUNT_M 2
@@ -29,6 +25,7 @@ public:
 signals:
     void finishCountDown();
     void change_ctd_d(const ctd_d*);
+	void change_pause_f(QString);//pause_fの状態が変更されたときemitされる
     
 public slots:
     void unsetDisable(){
@@ -47,6 +44,7 @@ private slots:
     void push_setting();
     void push_pause();
     void takeOneSec();
+
 private:
     void init_mode_Set();
     void init_buttons();
@@ -70,7 +68,6 @@ private:
 
 	bool readFromFile(QString&);
 
-//	QSystemTrayIcon* sysTrayIcon;
 };
 
 int HMSToSecond(const int,const int,const int);
