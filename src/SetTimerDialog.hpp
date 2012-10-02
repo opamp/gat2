@@ -3,11 +3,11 @@
 #include <QtGui>
 #include "count_time_data.hpp"
 
-class countdown_setting : public QDialog
+class SetTimerDialog : public QDialog
 {
 Q_OBJECT
 public:
-    countdown_setting(ctd_d*,QWidget* parent = 0);
+    SetTimerDialog(ctd_d*,QWidget* parent = 0);
     void show();
 
 protected:

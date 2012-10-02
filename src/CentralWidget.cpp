@@ -6,9 +6,9 @@
 CentralWidget::CentralWidget(QWidget *parent) :
     QWidget(parent)
 {
-    c_counter = new customCounter();
-    countdownSetting = new countdown_setting(&tdata);
-    connect(c_counter,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
+//  c_counter = new customCounter();
+    countdownSetting = new SetTimerDialog(&tdata);
+//  connect(c_counter,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
     connect(countdownSetting,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
     connect(&tdata,SIGNAL(changeValue(int,int,int)),this,SLOT(refLCD(int,int,int)));
     this->init_buttons();

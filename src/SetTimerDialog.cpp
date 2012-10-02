@@ -1,8 +1,8 @@
-#include "countdown_setting.hpp"
+#include "SetTimerDialog.hpp"
 #include <iostream>
 using namespace std;
 
-countdown_setting::countdown_setting(ctd_d* d, QWidget *parent):
+SetTimerDialog::SetTimerDialog(ctd_d* d, QWidget *parent):
     QDialog(parent)
 {
     // Set initial values in the `Set Timer` panel.
@@ -60,11 +60,11 @@ countdown_setting::countdown_setting(ctd_d* d, QWidget *parent):
     setLayout(mainLayout);
 }
 
-void countdown_setting::h_change(int h){
+void SetTimerDialog::h_change(int h){
     timedata->set_h(h);
 }
 
-void countdown_setting::m_change(int m){
+void SetTimerDialog::m_change(int m){
     if(m >= 60){
         timedata->set_m(0);
         timedata->set_h(timedata->get_h() + 1);
@@ -75,7 +75,7 @@ void countdown_setting::m_change(int m){
     }
 }
 
-void countdown_setting::s_change(int s){
+void SetTimerDialog::s_change(int s){
     if(s >= 60){
         timedata->set_s(0);
         timedata->set_m(timedata->get_m() + 1);
@@ -86,7 +86,7 @@ void countdown_setting::s_change(int s){
     }
 }
 
-void countdown_setting::push_ok(){
+void SetTimerDialog::push_ok(){
     // Update `original` values
     orig_s = timedata->get_s();
     orig_m = timedata->get_m();
@@ -97,7 +97,7 @@ void countdown_setting::push_ok(){
 }
 
 // Update the values automatically.
-void countdown_setting::show() {
+void SetTimerDialog::show() {
     s_change(orig_s);
     m_change(orig_m);
     h_change(orig_h);

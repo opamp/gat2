@@ -4,11 +4,12 @@
 #include <QtGui>
 #include <QSystemTrayIcon>
 #include <phonon/mediaobject.h>
-#include "countdown_setting.hpp"
+#include "SetTimerDialog.hpp"
 #include "count_time_data.hpp"
 #include "countup_box.hpp"
-#include "customCounter.hpp"
 #include "version.hpp"
+
+//#include "customCounter.hpp"
 
 #define COUNT_UP_M 0
 #define COUNT_DOWN_M 1
@@ -62,9 +63,9 @@ private:
     bool pause_f;
     Phonon::MediaObject *callaudio;
 
-    countdown_setting *countdownSetting;
+    SetTimerDialog *countdownSetting;
 	
-	customCounter *c_counter;
+//	customCounter *c_counter;
 
 	bool readFromFile(QString&);
 
