@@ -1,6 +1,6 @@
 SET(MSRC
     ${SRC_DIR}/main.cpp	
-    ${SRC_DIR}/mainwindow.cpp
+    ${SRC_DIR}/MainWindow.cpp
     ${SRC_DIR}/CentralWidget.cpp
     ${SRC_DIR}/customCounter.cpp
     ${SRC_DIR}/countdown_setting.cpp
@@ -12,7 +12,7 @@ SET(MSRC
 	)
 
 SET(MHED
-    ${SRC_DIR}/mainwindow.hpp
+    ${SRC_DIR}/MainWindow.hpp
     ${SRC_DIR}/CentralWidget.hpp
     ${SRC_DIR}/customCounter.hpp
     ${SRC_DIR}/countdown_setting.hpp

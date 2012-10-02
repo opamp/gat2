@@ -5,7 +5,7 @@
 #include <cstdio>
 #include <cstring>
 #include <string>
-#include "mainwindow.hpp"
+#include "MainWindow.hpp"
 #include "version.hpp"
 
 #define default_width_size 450
@@ -36,7 +36,7 @@ int main(int argc,char* argv[]){
 	QTextCodec::setCodecForCStrings(QTextCodec::codecForLocale());
 
 	QSize mainwindow_size(default_width_size,default_height_size);
-    mainwindow* window = new mainwindow();
+    MainWindow* window = new MainWindow();
 	window->setMinimumSize(mainwindow_size);
 //	window->setMaximumSize(mainwindow_size); // If this line is enable,you cannot change WindowSize.
     window->show();
