@@ -49,7 +49,7 @@ void CentralWidget::init_mode_Set(){
     mode_Set = new QComboBox();
     mode_Set->addItem(tr("Enumerate"));
     mode_Set->addItem(tr("Count Down"));
-    mode_Set->addItem(tr("Custom Counter"));
+//  mode_Set->addItem(tr("Custom Counter"));
     mode_Set->setEditable(false);
     connect(mode_Set,SIGNAL(currentIndexChanged(int)),this,SLOT(mode_change(int)));
     current_mode = COUNT_UP_M;
@@ -79,10 +79,12 @@ void CentralWidget::mode_change(int m){
         setEnabled(false);
         countdownSetting->show();
         break;
+/*
     case CUSTOM_COUNT_M:
         setEnabled(false);
 		c_counter->show();
         break;
+*/
     }
 }
 
@@ -148,8 +150,10 @@ void CentralWidget::push_setting(){
         setEnabled(false);
         countdownSetting->show();
         break;
+/*
     case CUSTOM_COUNT_M:
         break;
+*/
     }
 }
 void CentralWidget::refLCD(int ht,int mt,int st){
@@ -181,8 +185,10 @@ void CentralWidget::takeOneSec(){
             this->push_stop();
         }
         break;
+/*
     case CUSTOM_COUNT_M:
         break;
+*/
     }
     emit change_ctd_d(&tdata);
 }
