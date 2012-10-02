@@ -1,5 +1,5 @@
-#include"PreferenceDialog.hpp"
-#include"xml.hpp"
+#include "PreferenceDialog.hpp"
+#include "xml.hpp"
 #include <iostream>
 
 

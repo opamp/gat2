@@ -4,12 +4,10 @@
 #include <QtGui>
 #include <QSystemTrayIcon>
 #include <phonon/mediaobject.h>
-#include "SetTimerDialog.hpp"
-#include "count_time_data.hpp"
 #include "EnumeratedTimeView.hpp"
+#include "SetTimerDialog.hpp"
+#include "TimeData.hpp"
 #include "version.hpp"
-
-//#include "customCounter.hpp"
 
 #define COUNT_UP_M 0
 #define COUNT_DOWN_M 1

@@ -1,6 +1,6 @@
 #ifndef ABOUT_WIDGET_HPP
 #define ABOUT_WIDGET_HPP
-#include<QtGui>
+#include <QtGui>
 
 class gat_about_widget : public QWidget
 {

@@ -5,7 +5,7 @@ SET(MSRC
     ${SRC_DIR}/PreferenceDialog.cpp
 	${SRC_DIR}/SetTimerDialog.cpp
 	${SRC_DIR}/EnumeratedTimeView.cpp
-    ${SRC_DIR}/count_time_data.cpp
+    ${SRC_DIR}/TimeData.cpp
     ${SRC_DIR}/AboutWidget.cpp
 	${SRC_DIR}/xml.cpp
 	)
@@ -16,7 +16,7 @@ SET(MHED
     ${SRC_DIR}/PreferenceDialog.hpp
     ${SRC_DIR}/SetTimerDialog.hpp
 	${SRC_DIR}/EnumeratedTimeView.hpp
-    ${SRC_DIR}/count_time_data.hpp
+    ${SRC_DIR}/TimeData.hpp
     ${SRC_DIR}/AboutWidget.hpp
 	${SRC_DIR}/xml.hpp
     )

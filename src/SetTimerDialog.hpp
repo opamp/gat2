@@ -1,7 +1,7 @@
 #ifndef COUNTDOWN_SETTING_HPP
 #define COUNTDOWN_SETTING_HPP
 #include <QtGui>
-#include "count_time_data.hpp"
+#include "TimeData.hpp"
 
 class SetTimerDialog : public QDialog
 {

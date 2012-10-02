@@ -1,7 +1,7 @@
 #ifndef COUNTUP_BOX_HPP
 #define COUNTUP_BOX_HPP
 #include <QtGui>
-#include "count_time_data.hpp"
+#include "TimeData.hpp"
 
 class EnumeratedTimeView : public QDialog{
 Q_OBJECT

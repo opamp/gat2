@@ -1,7 +1,7 @@
 #include "xml.hpp"
-#include<QTextStream>
-#include<iostream>
-#include<QIODevice>
+#include <QTextStream>
+#include <iostream>
+#include <QIODevice>
 
 #define save_xml_indent 4
 

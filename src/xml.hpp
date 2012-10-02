@@ -1,13 +1,13 @@
 #ifndef XML_HPP
 #define XML_HPP
-#include<QString>
-#include<QFile>
-#include<QMap>
-#include<QtXml>
-#include<QDomDocument>
-#include<QDomNode>
-#include<QDomElement>
-#include<QDomText>
+#include <QtXml>
+#include <QString>
+#include <QFile>
+#include <QMap>
+#include <QDomDocument>
+#include <QDomNode>
+#include <QDomElement>
+#include <QDomText>
 
 class XmlParser{
 public:

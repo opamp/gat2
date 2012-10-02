@@ -1,7 +1,7 @@
 #include "MainWindow.hpp"
 #include "xml.hpp"
-#include<cstring>
-#include<cstdio>
+#include <cstring>
+#include <cstdio>
 
 MainWindow::MainWindow()
 {
