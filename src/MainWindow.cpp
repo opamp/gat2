@@ -22,7 +22,7 @@ MainWindow::MainWindow()
     connect(w,SIGNAL(finishCountDown()),this,SLOT(userCall()));
 
 
-    config_editor = new configDialog();
+    config_editor = new PreferenceDialog();
 	connect(config_editor,SIGNAL(chNotificationCheckBox(bool)),this,SLOT(changeNotificationCheckBox(bool)));
     about_widget = new gat_about_widget();
 

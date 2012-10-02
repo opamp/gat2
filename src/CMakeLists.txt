@@ -2,11 +2,11 @@ SET(MSRC
     ${SRC_DIR}/main.cpp	
     ${SRC_DIR}/MainWindow.cpp
     ${SRC_DIR}/CentralWidget.cpp
+    ${SRC_DIR}/PreferenceDialog.cpp
     ${SRC_DIR}/customCounter.cpp
     ${SRC_DIR}/countdown_setting.cpp
     ${SRC_DIR}/count_time_data.cpp
     ${SRC_DIR}/countup_box.cpp
-    ${SRC_DIR}/config_dialog.cpp
     ${SRC_DIR}/AboutWidget.cpp
 	${SRC_DIR}/xml.cpp
 	)
@@ -14,11 +14,11 @@ SET(MSRC
 SET(MHED
     ${SRC_DIR}/MainWindow.hpp
     ${SRC_DIR}/CentralWidget.hpp
+    ${SRC_DIR}/PreferenceDialog.hpp
     ${SRC_DIR}/customCounter.hpp
     ${SRC_DIR}/countdown_setting.hpp
     ${SRC_DIR}/count_time_data.hpp
     ${SRC_DIR}/countup_box.hpp
-    ${SRC_DIR}/config_dialog.hpp
     ${SRC_DIR}/AboutWidget.hpp
 	${SRC_DIR}/xml.hpp
     )

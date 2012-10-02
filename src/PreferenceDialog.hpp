@@ -5,10 +5,10 @@
 #include<config.hpp>
 #include"version.hpp"
 
-class configDialog : public QDialog{
+class PreferenceDialog : public QDialog{
 Q_OBJECT
 public:
-    configDialog(QWidget* parnet = 0);
+    PreferenceDialog(QWidget* parnet = 0);
 
 signals:
     void chAudioFile(QString const&);

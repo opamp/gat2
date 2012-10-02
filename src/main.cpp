@@ -35,10 +35,10 @@ int main(int argc,char* argv[]){
 	QTextCodec::setCodecForTr(QTextCodec::codecForLocale());
 	QTextCodec::setCodecForCStrings(QTextCodec::codecForLocale());
 
-	QSize mainwindow_size(default_width_size,default_height_size);
+    QSize MainWindowSize(default_width_size,default_height_size);
     MainWindow* window = new MainWindow();
-	window->setMinimumSize(mainwindow_size);
-//	window->setMaximumSize(mainwindow_size); // If this line is enable,you cannot change WindowSize.
+    window->setMinimumSize(MainWindowSize);
+//	window->setMaximumSize(MainWindowSize); // If this line is enable,you cannot change WindowSize.
     window->show();
 
     return gat.exec();

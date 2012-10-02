@@ -1,9 +1,9 @@
-#include"config_dialog.hpp"
+#include"PreferenceDialog.hpp"
 #include"xml.hpp"
 #include <iostream>
 
 
-configDialog::configDialog(QWidget* parent):
+PreferenceDialog::PreferenceDialog(QWidget* parent):
     QDialog(parent)
 {
     audioFileEdit = new QLineEdit();audioFileEdit->setReadOnly(true);
@@ -49,7 +49,7 @@ configDialog::configDialog(QWidget* parent):
 };
 
 
-void configDialog::audioFileEditCallPathDialogButton_is_Pushed(){
+void PreferenceDialog::audioFileEditCallPathDialogButton_is_Pushed(){
     audioFilePath = QFileDialog::getOpenFileName(this,tr("Open File"),".",tr("Audio File (*)"));
 	std::cout<<audioFilePath.toStdString()<<std::endl;
     if(audioFilePath.isEmpty()){
@@ -64,7 +64,7 @@ void configDialog::audioFileEditCallPathDialogButton_is_Pushed(){
 /*!
  * pathでaudio fileへのPATHを受け取ってファイルに書き出す
  */
-bool configDialog::writeToFile(const QString &path){
+bool PreferenceDialog::writeToFile(const QString &path){
 	XmlParser xf;
 	if(xf.open(config_file_path) == false){
 		std::cout<<"Failed to save xml"<<std::endl;
@@ -76,7 +76,7 @@ bool configDialog::writeToFile(const QString &path){
 	return true;
 };
 
-void configDialog::notificationCheckChanged(int n){
+void PreferenceDialog::notificationCheckChanged(int n){
 	QString s = "notification";
 	std::cout<<"Notification check box changed.["<<n<<"]"<<std::endl;
 	XmlParser xf;

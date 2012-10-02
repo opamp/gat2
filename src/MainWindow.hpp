@@ -2,9 +2,10 @@
 #define MAINWINDOW_HPP
 
 #include <QMainWindow>
-#include "CentralWidget.hpp"
-#include "config_dialog.hpp"
+
 #include "AboutWidget.hpp"
+#include "CentralWidget.hpp"
+#include "PreferenceDialog.hpp"
 
 class MainWindow : public QMainWindow
 {
@@ -34,7 +35,7 @@ private:
 	bool enableSysTray;
     bool real_close;
     CentralWidget *w;
-    configDialog *config_editor;
+    PreferenceDialog *config_editor;
     gat_about_widget *about_widget;
 
     QMenu *help_bar;
