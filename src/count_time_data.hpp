@@ -2,15 +2,7 @@
 #define COUNT_TIME_DATA_HPP
 #include <cstdio>
 #include <QObject>
-/*
-struct count_time_data{
-    int h;
-    int m;
-    int s;
-};
 
-typedef struct count_time_data ctd_d;
-*/
 class ctd_d : public QObject{
 Q_OBJECT
 public:
