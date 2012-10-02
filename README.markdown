@@ -10,11 +10,9 @@ gat2はgatの続編です。前作のgatがあまりにもバグが多かった�
 ArchLinux(Xfce)での動作画像  
 
 ##Note   
-#####2.5.5での変更点  
+#####2.5.6での変更点  
 
-	英語の修正を内部的にもしていただきました  
-	カウントをPauseしてる間はMainWindowに[Pause]と表示するようにしました  
-	カウントダウンのタイマーの設定dialogを改善しました   
+	CountDown時に初期で時間や分が1になっていたり、強制終了する問題を修正   
 
 #####遠い先の3.0.0での変更点(予定)  
 
@@ -50,7 +48,7 @@ DLはgitがなくてもgithubからzipなどでDLできるのでそれを利用�
 #####次に、作業用ディレクトリを作りcmakeを実行します。   
 
 	$ cd gat2   
-	$ git checkout -b build 2.5.5  
+	$ git checkout -b build 2.5.6  
 	$ mkdir build   
 	$ cd build   
 
