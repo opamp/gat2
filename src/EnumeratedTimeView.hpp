@@ -10,7 +10,7 @@ public:
     void setData(ctd_d*);
 
 private:
-    QLabel *p;
-    QPushButton *b;
+    QLabel *MainLabel;
+    QPushButton *OKButton;
 };
 #endif
