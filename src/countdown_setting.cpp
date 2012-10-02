@@ -1,14 +1,20 @@
 #include "countdown_setting.hpp"
+#include <iostream>
+using namespace std;
 
 countdown_setting::countdown_setting(ctd_d* d, QWidget *parent):
     QDialog(parent)
 {
     // Set initial values in the `Set Timer` panel.
     timedata = d;
-    
     h_change(0);
     m_change(0);
     s_change(0);
+
+    //Initialize orig_* values;
+    orig_h = 0;
+    orig_m = 0;
+    orig_s = 0;
 
     // Time display objects.
     hb = new QSpinBox();
@@ -25,7 +31,7 @@ countdown_setting::countdown_setting(ctd_d* d, QWidget *parent):
     mb->setValue(timedata->get_m());
     hb->setValue(timedata->get_h());
 
-    // ?? 
+    // Connect signals to slots;
     connect(hb,SIGNAL(valueChanged(int)),this,SLOT(h_change(int)));
     connect(mb,SIGNAL(valueChanged(int)),this,SLOT(m_change(int)));
     connect(sb,SIGNAL(valueChanged(int)),this,SLOT(s_change(int)));

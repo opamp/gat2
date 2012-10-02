@@ -1,7 +1,9 @@
 #include "count_time_data.hpp"
 
 ctd_d::ctd_d(){
-    h = m = s = 0;
+    h = 0;
+    m = 0;
+    s = 0;
 }
 
  void ctd_d::set_h(int h)
