@@ -2,7 +2,7 @@
 #define MAINWINDOW_HPP
 
 #include <QMainWindow>
-#include "mainwid.hpp"
+#include "CentralWidget.hpp"
 #include "config_dialog.hpp"
 #include "AboutWidget.hpp"
 
@@ -33,7 +33,7 @@ public slots:
 private:
 	bool enableSysTray;
     bool real_close;
-    mainwid *w;
+    CentralWidget *w;
     configDialog *config_editor;
     gat_about_widget *about_widget;
 

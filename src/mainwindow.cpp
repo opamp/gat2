@@ -11,7 +11,7 @@ mainwindow::mainwindow()
 	enableSysTray = xf.getCheckbox(QString::fromStdString("notification"));
 
     real_close = false;
-    w = new mainwid();
+    w = new CentralWidget();
     connect(w,SIGNAL(change_ctd_d(const ctd_d*)),this,SLOT(changeTrayTime(const ctd_d*)));
 	connect(w,SIGNAL(change_pause_f(QString)),this,SLOT(changeWindowTitle(QString)));
 
