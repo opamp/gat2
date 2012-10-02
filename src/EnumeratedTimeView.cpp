@@ -1,6 +1,6 @@
-#include "countup_box.hpp"
+#include "EnumeratedTimeView.hpp"
 
-countup_box::countup_box(QWidget* parent):
+EnumeratedTimeView::EnumeratedTimeView(QWidget* parent):
     QDialog(parent)
 {
     p = new QLabel(tr("unset data."));
@@ -14,7 +14,7 @@ countup_box::countup_box(QWidget* parent):
     setLayout(mainlayout);
 }
 
-void countup_box::setData(ctd_d* td){
+void EnumeratedTimeView::setData(ctd_d* td){
     QString h,m,s;
     h.setNum(td->get_h());
     m.setNum(td->get_m());

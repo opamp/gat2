@@ -6,7 +6,7 @@
 #include <phonon/mediaobject.h>
 #include "SetTimerDialog.hpp"
 #include "count_time_data.hpp"
-#include "countup_box.hpp"
+#include "EnumeratedTimeView.hpp"
 #include "version.hpp"
 
 //#include "customCounter.hpp"
@@ -57,7 +57,7 @@ private:
     QString current_mode_string;int current_mode;
 	QString audioFilePath;
     QPushButton *start,*stop,*pause,*config;
-    countup_box *countup_msg;
+    EnumeratedTimeView *countup_msg;
     QTimer *t;
     ctd_d tdata;
     bool pause_f;

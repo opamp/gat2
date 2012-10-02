@@ -17,7 +17,7 @@ CentralWidget::CentralWidget(QWidget *parent) :
     two = new QLCDNumber(); //m
     three = new QLCDNumber();//s
     all_s = new QLCDNumber();
-    countup_msg = new countup_box();
+    countup_msg = new EnumeratedTimeView();
 
     pause_f = false;
 
