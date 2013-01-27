@@ -13,7 +13,6 @@ ArchLinux(Xfce)での動作画像
 Qt5で試験的にビルドできるようにしてみました。パッチを作ってみたので、次のようにして適応してみてください
 
 	$ git clone git@github.com:opamp/gat2.git  
-	$ cd ..   
 	$ patch -p0 < gat2/gat2-qt5.patch  
 
 ただし、Phononが利用できなかったので無効にしています。 なので音声のアラームがなりません。   
