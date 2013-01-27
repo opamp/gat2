@@ -1,0 +1,309 @@
+Binary files gat2/.git/index and gat2-qt5/.git/index differ
+diff -u -r gat2/.git/logs/HEAD gat2-qt5/.git/logs/HEAD
+--- gat2/.git/logs/HEAD	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/.git/logs/HEAD	2013-01-27 12:42:21.000000000 +0900
+@@ -1 +1 @@
+-0000000000000000000000000000000000000000 1a5b2a5acc65c2e2a10f9eabcb6633332a656404 opamp sando <opampg@gmail.com> 1359260362 +0900	clone: from git@github.com:opamp/gat2.git
++0000000000000000000000000000000000000000 1a5b2a5acc65c2e2a10f9eabcb6633332a656404 opamp sando <opampg@gmail.com> 1359258141 +0900	clone: from git@github.com:opamp/gat2.git
+diff -u -r gat2/.git/logs/refs/heads/master gat2-qt5/.git/logs/refs/heads/master
+--- gat2/.git/logs/refs/heads/master	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/.git/logs/refs/heads/master	2013-01-27 12:42:21.000000000 +0900
+@@ -1 +1 @@
+-0000000000000000000000000000000000000000 1a5b2a5acc65c2e2a10f9eabcb6633332a656404 opamp sando <opampg@gmail.com> 1359260362 +0900	clone: from git@github.com:opamp/gat2.git
++0000000000000000000000000000000000000000 1a5b2a5acc65c2e2a10f9eabcb6633332a656404 opamp sando <opampg@gmail.com> 1359258141 +0900	clone: from git@github.com:opamp/gat2.git
+diff -u -r gat2/.git/logs/refs/remotes/origin/HEAD gat2-qt5/.git/logs/refs/remotes/origin/HEAD
+--- gat2/.git/logs/refs/remotes/origin/HEAD	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/.git/logs/refs/remotes/origin/HEAD	2013-01-27 12:42:21.000000000 +0900
+@@ -1 +1 @@
+-0000000000000000000000000000000000000000 1a5b2a5acc65c2e2a10f9eabcb6633332a656404 opamp sando <opampg@gmail.com> 1359260362 +0900	clone: from git@github.com:opamp/gat2.git
++0000000000000000000000000000000000000000 1a5b2a5acc65c2e2a10f9eabcb6633332a656404 opamp sando <opampg@gmail.com> 1359258141 +0900	clone: from git@github.com:opamp/gat2.git
+diff -u -r gat2/CMakeLists.txt gat2-qt5/CMakeLists.txt
+--- gat2/CMakeLists.txt	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/CMakeLists.txt	2013-01-27 12:45:06.000000000 +0900
+@@ -1,5 +1,5 @@
+ PROJECT(gat2)
+-CMAKE_MINIMUM_REQUIRED(VERSION 2.8.5)
++CMAKE_MINIMUM_REQUIRED(VERSION 2.8.10)
+ 
+ SET(GAT_VERSION_MAJOR "2")
+ SET(GAT_VERSION_MINOR "5")
+@@ -8,15 +8,18 @@
+ 
+ MESSAGE(STATUS "VERSION -> ${GAT_VERSION}")
+ 
+-FIND_PACKAGE(Qt4 4.8.0 REQUIRED)
++#FIND_PACKAGE(Qt4 4.8.0 REQUIRED)
++FIND_PACKAGE(Qt5Widgets)
++SET(CMAKE_AUTOMOC ON)
++SET(CMAKE_INCLUDE_CURRENT_DIR ON)
+ 
+ SET(MRSC ${PROJECT_SOURCE_DIR}/main.qrc)
+ 
+ SET(SRC_DIR ${PROJECT_SOURCE_DIR}/src)
+ 
+-MESSAGE(STATUS "Phonon ... " ${QT_PHONON_FOUND})
+-INCLUDE_DIRECTORIES(${QT_PHONON_INCLUDE_DIR})
+-LINK_DIRECTORIES(${QT_PHONON_LIBRARY})
++#MESSAGE(STATUS "Phonon ... " ${QT_PHONON_FOUND})
++#INCLUDE_DIRECTORIES(${QT_PHONON_INCLUDE_DIR})
++#LINK_DIRECTORIES(${QT_PHONON_LIBRARY})
+ 
+ IF(NOT MINGW AND UNIX)
+ 	SET(P_UNIX ON)
+Only in gat2-qt5: CMakeLists.txt.user
+diff -u -r gat2/src/AboutWidget.cpp gat2-qt5/src/AboutWidget.cpp
+--- gat2/src/AboutWidget.cpp	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/AboutWidget.cpp	2013-01-27 12:50:44.000000000 +0900
+@@ -1,6 +1,7 @@
+ #include "AboutWidget.hpp"
+ #include "version.hpp"
+ #include <iostream>
++#include <QVBoxLayout>
+ 
+ gat_about_widget::gat_about_widget(QWidget* parent):
+ 	QWidget(parent)
+diff -u -r gat2/src/AboutWidget.hpp gat2-qt5/src/AboutWidget.hpp
+--- gat2/src/AboutWidget.hpp	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/AboutWidget.hpp	2013-01-27 12:48:39.000000000 +0900
+@@ -1,6 +1,9 @@
+ #ifndef ABOUT_WIDGET_HPP
+ #define ABOUT_WIDGET_HPP
+ #include <QtGui>
++#include <QLabel>
++#include <QTextEdit>
++#include <QPushButton>
+ 
+ class gat_about_widget : public QWidget
+ {
+diff -u -r gat2/src/CMakeLists.txt gat2-qt5/src/CMakeLists.txt
+--- gat2/src/CMakeLists.txt	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/CMakeLists.txt	2013-01-27 13:17:03.000000000 +0900
+@@ -1,3 +1,4 @@
++FIND_PACKAGE(Qt5Multimedia)
+ SET(MSRC
+     ${SRC_DIR}/main.cpp	
+     ${SRC_DIR}/MainWindow.cpp
+@@ -21,12 +22,13 @@
+ 	${SRC_DIR}/xml.hpp
+     )
+ 
+-QT4_WRAP_CPP(HMOD ${MHED})
++#QT4_WRAP_CPP(HMOD ${MHED})
++#QT4_ADD_RESOURCES(QRC ${PROJECT_SOURCE_DIR}/src/main.qrc)
++#ADD_DEFINITIONS(${QT_DEFINITIONS})
++#INCLUDE(${QT_USE_FILE})
+ 
+-QT4_ADD_RESOURCES(QRC ${PROJECT_SOURCE_DIR}/src/main.qrc)
+-ADD_DEFINITIONS(${QT_DEFINITIONS})
+-INCLUDE(${QT_USE_FILE})
+-INCLUDE_DIRECTORIES(${QT_PHONON_INCLUDE_DIR} ${QT_QTXML_INCLUDE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
++QT5_ADD_RESOURCES(QRC ${PROJECT_SOURCE_DIR}/src/main.qrc)
++#INCLUDE_DIRECTORIES(${QT_PHONON_INCLUDE_DIR} ${QT_QTXML_INCLUDE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
+ SET(SRCS ${MSRC} ${HMOD} ${QRC})
+ IF(WIN32)
+     SET(SRCS ${SRCS} ${PROJECT_SOURCE_DIR}/src/resource/win/WinPICON.rc)
+@@ -40,7 +42,8 @@
+ ELSEIF(UNIX AND NOT APPLE)
+     ADD_EXECUTABLE(gat ${SRCS})
+ ENDIF()
+-TARGET_LINK_LIBRARIES(gat ${QT_LIBRARIES} ${QT_PHONON_LIBRARY} ${QT_QTXML_LIBRARY})
++#TARGET_LINK_LIBRARIES(gat ${QT_LIBRARIES} ${QT_PHONON_LIBRARY} ${QT_QTXML_LIBRARY})
++QT5_USE_MODULES(gat Widgets Xml Multimedia)
+ 
+ IF(UNIX AND NOT APPLE)
+     INSTALL(TARGETS gat RUNTIME DESTINATION bin)
+diff -u -r gat2/src/CentralWidget.cpp gat2-qt5/src/CentralWidget.cpp
+--- gat2/src/CentralWidget.cpp	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/CentralWidget.cpp	2013-01-27 13:17:48.000000000 +0900
+@@ -2,6 +2,8 @@
+ #include "xml.hpp"
+ #include <iostream>
+ #include <config.hpp>
++#include <QVBoxLayout>
++#include <QHBoxLayout>
+ 
+ CentralWidget::CentralWidget(QWidget *parent) :
+     QWidget(parent)
+@@ -41,8 +43,7 @@
+     mainlayout->addLayout(buttonLayout);
+ 
+     setLayout(mainlayout);
+-//  callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
+-    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
++    //callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
+ }
+ 
+ void CentralWidget::init_mode_Set(){
+@@ -174,12 +175,15 @@
+         if(tdata.decOneSec()){
+             this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
+         }else{
+-            delete callaudio;
+-			if(this->readFromFile(audioFilePath) != false){
+-		         callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(audioFilePath));
+-				 callaudio->play();
++            //delete callaudio;
++            if(this->readFromFile(audioFilePath) != false){
++                /*
++                callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(audioFilePath));
++                callaudio->play();
++                */
++                //QSound::play(audioFilePath);
+ 			}else{
+-			    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
++                //callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
+ 			}
+             emit finishCountDown();
+             this->push_stop();
+diff -u -r gat2/src/CentralWidget.hpp gat2-qt5/src/CentralWidget.hpp
+--- gat2/src/CentralWidget.hpp	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/CentralWidget.hpp	2013-01-27 13:15:53.000000000 +0900
+@@ -3,6 +3,10 @@
+ 
+ #include <QtGui>
+ #include <QSystemTrayIcon>
++#include <QLabel>
++#include <QLCDNumber>
++#include <QComboBox>
++#include <QPushButton>
+ #include <phonon/mediaobject.h>
+ #include "EnumeratedTimeView.hpp"
+ #include "SetTimerDialog.hpp"
+@@ -32,7 +36,7 @@
+     };
+ 
+ 	void delete_phonon_object(){
+-        delete callaudio;
++        //delete callaudio;
+ 	};
+ 
+ private slots:
+@@ -48,6 +52,7 @@
+     void init_mode_Set();
+     void init_buttons();
+ 
++
+     QLabel *sl;
+     QLCDNumber *one,*two,*three;
+     QLCDNumber *all_s;
+@@ -59,7 +64,7 @@
+     QTimer *t;
+     ctd_d tdata;
+     bool pause_f;
+-    Phonon::MediaObject *callaudio;
++    //Phonon::MediaObject *callaudio;
+ 
+     SetTimerDialog *countdownSetting;
+ 	
+diff -u -r gat2/src/EnumeratedTimeView.cpp gat2-qt5/src/EnumeratedTimeView.cpp
+--- gat2/src/EnumeratedTimeView.cpp	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/EnumeratedTimeView.cpp	2013-01-27 12:51:10.000000000 +0900
+@@ -1,4 +1,5 @@
+ #include "EnumeratedTimeView.hpp"
++#include <QVBoxLayout>
+ 
+ EnumeratedTimeView::EnumeratedTimeView(QWidget* parent):
+     QDialog(parent)
+diff -u -r gat2/src/EnumeratedTimeView.hpp gat2-qt5/src/EnumeratedTimeView.hpp
+--- gat2/src/EnumeratedTimeView.hpp	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/EnumeratedTimeView.hpp	2013-01-27 12:53:21.000000000 +0900
+@@ -1,6 +1,9 @@
+ #ifndef COUNTUP_BOX_HPP
+ #define COUNTUP_BOX_HPP
+ #include <QtGui>
++#include <QDialog>
++#include <QLabel>
++#include <QPushButton>
+ #include "TimeData.hpp"
+ 
+ class EnumeratedTimeView : public QDialog{
+diff -u -r gat2/src/MainWindow.hpp gat2-qt5/src/MainWindow.hpp
+--- gat2/src/MainWindow.hpp	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/MainWindow.hpp	2013-01-27 12:57:20.000000000 +0900
+@@ -2,6 +2,9 @@
+ #define MAINWINDOW_HPP
+ 
+ #include <QMainWindow>
++#include <QMenu>
++#include <QAction>
++#include <QMenuBar>
+ 
+ #include "AboutWidget.hpp"
+ #include "CentralWidget.hpp"
+diff -u -r gat2/src/PreferenceDialog.cpp gat2-qt5/src/PreferenceDialog.cpp
+--- gat2/src/PreferenceDialog.cpp	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/PreferenceDialog.cpp	2013-01-27 12:58:17.000000000 +0900
+@@ -1,6 +1,9 @@
+ #include "PreferenceDialog.hpp"
+ #include "xml.hpp"
+ #include <iostream>
++#include <QHBoxLayout>
++#include <QVBoxLayout>
++#include <QFileDialog>
+ 
+ 
+ PreferenceDialog::PreferenceDialog(QWidget* parent):
+diff -u -r gat2/src/PreferenceDialog.hpp gat2-qt5/src/PreferenceDialog.hpp
+--- gat2/src/PreferenceDialog.hpp	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/PreferenceDialog.hpp	2013-01-27 12:57:47.000000000 +0900
+@@ -1,7 +1,12 @@
+ #ifndef CONFIG_DIALOG_HPP
+ #define CONFIG_DIALOG_HPP
+ #include <QtGui>
++#include <QDialog>
+ #include <QDir>
++#include <QLabel>
++#include <QLineEdit>
++#include <QPushButton>
++#include <QCheckBox>
+ #include <config.hpp>
+ #include "version.hpp"
+ 
+diff -u -r gat2/src/SetTimerDialog.cpp gat2-qt5/src/SetTimerDialog.cpp
+--- gat2/src/SetTimerDialog.cpp	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/SetTimerDialog.cpp	2013-01-27 12:51:55.000000000 +0900
+@@ -1,5 +1,7 @@
+ #include "SetTimerDialog.hpp"
+ #include <iostream>
++#include <QHBoxLayout>
++#include <QVBoxLayout>
+ using namespace std;
+ 
+ SetTimerDialog::SetTimerDialog(ctd_d* d, QWidget *parent):
+diff -u -r gat2/src/SetTimerDialog.hpp gat2-qt5/src/SetTimerDialog.hpp
+--- gat2/src/SetTimerDialog.hpp	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/SetTimerDialog.hpp	2013-01-27 12:58:44.000000000 +0900
+@@ -1,6 +1,10 @@
+ #ifndef COUNTDOWN_SETTING_HPP
+ #define COUNTDOWN_SETTING_HPP
+ #include <QtGui>
++#include <QDialog>
++#include <QSpinBox>
++#include <QLabel>
++#include <QPushButton>
+ #include "TimeData.hpp"
+ 
+ class SetTimerDialog : public QDialog
+diff -u -r gat2/src/main.cpp gat2-qt5/src/main.cpp
+--- gat2/src/main.cpp	2013-01-27 13:19:22.000000000 +0900
++++ gat2-qt5/src/main.cpp	2013-01-27 12:55:39.000000000 +0900
+@@ -5,6 +5,7 @@
+ #include <cstdio>
+ #include <cstring>
+ #include <string>
++#include <QTextCodec>
+ #include "MainWindow.hpp"
+ #include "version.hpp"
+ 
+@@ -31,9 +32,10 @@
+ 
+     QApplication gat(argc,argv);
+ 	gat.setApplicationName("gat2");
+-
++/*
+ 	QTextCodec::setCodecForTr(QTextCodec::codecForLocale());
+ 	QTextCodec::setCodecForCStrings(QTextCodec::codecForLocale());
++*/
+ 
+     QSize MainWindowSize(default_width_size,default_height_size);
+     MainWindow* window = new MainWindow();

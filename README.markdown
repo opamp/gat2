@@ -10,19 +10,16 @@ gat2はgatの続編です。前作のgatがあまりにもバグが多かった�
 ArchLinux(Xfce)での動作画像  
 
 ##Note   
-##### 2.5.6での更新点
+Qt5で試験的にビルドできるようにしてみました。パッチを作ってみたので、次のようにして適応してみてください
 
-	CountDown時に初期で時間や分が1になっていたり、強制終了する問題を修正  
+	$ git clone git@github.com:opamp/gat2.git  
+	$ cd ..   
+	$ patch -p0 < gat2/gat2-qt5.patch  
 
-##### 3.0.0での変更予定点 
-
-	UIを改善してもう少しコンパクトにしたい。  
-	ミリ秒単位まで測れるようにしたい。  
-	Project名をgat2じゃなくてgatにするかも。  
-	全体的なリファクタリング...(ファイル名の変更は終了)   
+ただし、Phononが利用できなかったので無効にしています。 なので音声のアラームがなりません。   
 
 ##Dependencies
-[Qt](http://qt.nokia.com/).
+[Qt4](http://qt.nokia.com/).
 License is [LGPLv2](http://www.gnu.org/licenses/lgpl-2.1.html)   
     
 ##Building gat
