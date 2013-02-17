@@ -9,14 +9,6 @@ gat2はgatの続編です。前作のgatがあまりにもバグが多かった�
 ![alt text](http://dl.dropbox.com/u/23369413/pictures/gat2/png/gat.png)  
 ArchLinux(Xfce)での動作画像  
 
-##Note   
-Qt5で試験的にビルドできるようにしてみました。パッチを作ってみたので、次のようにして適応してみてください
-
-	$ git clone git@github.com:opamp/gat2.git  
-	$ patch -p0 < gat2/gat2-qt5.patch  
-
-ただし、Phononが利用できなかったので無効にしています。 なので音声のアラームがなりません。   
-
 ##Dependencies
 [Qt4](http://qt.nokia.com/).
 License is [LGPLv2](http://www.gnu.org/licenses/lgpl-2.1.html)   
