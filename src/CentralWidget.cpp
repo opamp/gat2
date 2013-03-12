@@ -43,14 +43,14 @@ CentralWidget::CentralWidget(QWidget *parent) :
     mainlayout->addLayout(buttonLayout);
 
     setLayout(mainlayout);
-    //callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
+    player = new QMediaPlayer;
 }
 
 void CentralWidget::init_mode_Set(){
     mode_Set = new QComboBox();
     mode_Set->addItem(tr("Enumerate"));
     mode_Set->addItem(tr("Count Down"));
-//  mode_Set->addItem(tr("Custom Counter"));
+// mode_Set->addItem(tr("Custom Counter"));
     mode_Set->setEditable(false);
     connect(mode_Set,SIGNAL(currentIndexChanged(int)),this,SLOT(mode_change(int)));
     current_mode = COUNT_UP_M;
@@ -175,16 +175,11 @@ void CentralWidget::takeOneSec(){
         if(tdata.decOneSec()){
             this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
         }else{
-            //delete callaudio;
             if(this->readFromFile(audioFilePath) != false){
-                /*
-                callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(audioFilePath));
-                callaudio->play();
-                */
-                //QSound::play(audioFilePath);
-			}else{
-                //callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
-			}
+                player->setMedia(QUrl::fromLocalFile(audioFilePath));
+                player->setVolume(100);
+                player->play();
+            }
             emit finishCountDown();
             this->push_stop();
         }

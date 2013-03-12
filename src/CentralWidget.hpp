@@ -2,6 +2,7 @@
 #define MAINWID_HPP
 
 #include <QtGui>
+#include <QMediaPlayer>
 #include <QSystemTrayIcon>
 #include <QLabel>
 #include <QLCDNumber>
@@ -63,6 +64,7 @@ private:
     QTimer *t;
     ctd_d tdata;
     bool pause_f;
+    QMediaPlayer *player;
     //Phonon::MediaObject *callaudio;
 
     SetTimerDialog *countdownSetting;
