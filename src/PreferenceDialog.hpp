@@ -1,7 +1,12 @@
 #ifndef CONFIG_DIALOG_HPP
 #define CONFIG_DIALOG_HPP
 #include <QtGui>
+#include <QDialog>
 #include <QDir>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QCheckBox>
 #include <config.hpp>
 #include "version.hpp"
 
@@ -23,7 +28,7 @@ private:
     QPushButton* audioFileEditCallPathDialogButton;
     QString audioFilePath;
 
-	QCheckBox* notificationCheck;
+    QCheckBox* announcementCheck;
 
 	bool writeToFile(const QString&);
 

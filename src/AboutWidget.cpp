@@ -1,6 +1,7 @@
 #include "AboutWidget.hpp"
 #include "version.hpp"
 #include <iostream>
+#include <QVBoxLayout>
 
 gat_about_widget::gat_about_widget(QWidget* parent):
 	QWidget(parent)

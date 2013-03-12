@@ -2,6 +2,9 @@
 #define MAINWINDOW_HPP
 
 #include <QMainWindow>
+#include <QMenu>
+#include <QAction>
+#include <QMenuBar>
 
 #include "AboutWidget.hpp"
 #include "CentralWidget.hpp"

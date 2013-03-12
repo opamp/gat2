@@ -2,13 +2,13 @@
 #include "xml.hpp"
 #include <iostream>
 #include <config.hpp>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
 
 CentralWidget::CentralWidget(QWidget *parent) :
     QWidget(parent)
 {
-//  c_counter = new customCounter();
     countdownSetting = new SetTimerDialog(&tdata);
-//  connect(c_counter,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
     connect(countdownSetting,SIGNAL(finishSetting()),this,SLOT(unsetDisable()));
     connect(&tdata,SIGNAL(changeValue(int,int,int)),this,SLOT(refLCD(int,int,int)));
     this->init_buttons();
@@ -41,15 +41,13 @@ CentralWidget::CentralWidget(QWidget *parent) :
     mainlayout->addLayout(buttonLayout);
 
     setLayout(mainlayout);
-//  callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
-    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
+    player = new QMediaPlayer;
 }
 
 void CentralWidget::init_mode_Set(){
     mode_Set = new QComboBox();
     mode_Set->addItem(tr("Enumerate"));
     mode_Set->addItem(tr("Count Down"));
-//  mode_Set->addItem(tr("Custom Counter"));
     mode_Set->setEditable(false);
     connect(mode_Set,SIGNAL(currentIndexChanged(int)),this,SLOT(mode_change(int)));
     current_mode = COUNT_UP_M;
@@ -79,17 +77,10 @@ void CentralWidget::mode_change(int m){
         setEnabled(false);
         countdownSetting->show();
         break;
-/*
-    case CUSTOM_COUNT_M:
-        setEnabled(false);
-		c_counter->show();
-        break;
-*/
     }
 }
 
 void CentralWidget::push_start(){
-//    delete callaudio;
     start->setEnabled(false);
     config->setEnabled(false);
     pause->setEnabled(true);
@@ -150,10 +141,6 @@ void CentralWidget::push_setting(){
         setEnabled(false);
         countdownSetting->show();
         break;
-/*
-    case CUSTOM_COUNT_M:
-        break;
-*/
     }
 }
 void CentralWidget::refLCD(int ht,int mt,int st){
@@ -174,21 +161,15 @@ void CentralWidget::takeOneSec(){
         if(tdata.decOneSec()){
             this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
         }else{
-            delete callaudio;
-			if(this->readFromFile(audioFilePath) != false){
-		         callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(audioFilePath));
-				 callaudio->play();
-			}else{
-			    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
-			}
+            if(this->readFromFile(audioFilePath) != false){
+                player->setMedia(QUrl::fromLocalFile(audioFilePath));
+                player->setVolume(100);
+                player->play();
+            }
             emit finishCountDown();
             this->push_stop();
         }
         break;
-/*
-    case CUSTOM_COUNT_M:
-        break;
-*/
     }
     emit change_ctd_d(&tdata);
 }

@@ -1,6 +1,9 @@
 #ifndef ABOUT_WIDGET_HPP
 #define ABOUT_WIDGET_HPP
 #include <QtGui>
+#include <QLabel>
+#include <QTextEdit>
+#include <QPushButton>
 
 class gat_about_widget : public QWidget
 {

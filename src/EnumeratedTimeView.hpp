@@ -1,6 +1,9 @@
 #ifndef COUNTUP_BOX_HPP
 #define COUNTUP_BOX_HPP
 #include <QtGui>
+#include <QDialog>
+#include <QLabel>
+#include <QPushButton>
 #include "TimeData.hpp"
 
 class EnumeratedTimeView : public QDialog{
@@ -10,7 +13,7 @@ public:
     void setData(ctd_d*);
 
 private:
-    QLabel *p;
-    QPushButton *b;
+    QLabel *MainLabel;
+    QPushButton *OKButton;
 };
 #endif

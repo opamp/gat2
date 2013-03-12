@@ -17,8 +17,7 @@ MainWindow::MainWindow()
 
     sysTrayIcon = new QSystemTrayIcon(QIcon(":/photos/resource/p_icon.png"));
     sysTrayIcon->setVisible(true);//show!!
-	if(enableSysTray)
-		sysTrayIcon->showMessage(tr("gat2"),tr("Welcome to gat2!"),QSystemTrayIcon::Information,1500);
+    if(enableSysTray) sysTrayIcon->showMessage(tr("gat2"),tr("Welcome to gat2!"),QSystemTrayIcon::Information,1500);
     connect(w,SIGNAL(finishCountDown()),this,SLOT(userCall()));
 
 

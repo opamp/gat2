@@ -2,8 +2,12 @@
 #define MAINWID_HPP
 
 #include <QtGui>
+#include <QMediaPlayer>
 #include <QSystemTrayIcon>
-#include <phonon/mediaobject.h>
+#include <QLabel>
+#include <QLCDNumber>
+#include <QComboBox>
+#include <QPushButton>
 #include "EnumeratedTimeView.hpp"
 #include "SetTimerDialog.hpp"
 #include "TimeData.hpp"
@@ -32,7 +36,7 @@ public slots:
     };
 
 	void delete_phonon_object(){
-        delete callaudio;
+        //delete callaudio;
 	};
 
 private slots:
@@ -48,6 +52,7 @@ private:
     void init_mode_Set();
     void init_buttons();
 
+
     QLabel *sl;
     QLCDNumber *one,*two,*three;
     QLCDNumber *all_s;
@@ -59,12 +64,10 @@ private:
     QTimer *t;
     ctd_d tdata;
     bool pause_f;
-    Phonon::MediaObject *callaudio;
+    QMediaPlayer *player;
 
     SetTimerDialog *countdownSetting;
 	
-//	customCounter *c_counter;
-
 	bool readFromFile(QString&);
 
 };
