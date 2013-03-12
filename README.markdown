@@ -4,10 +4,14 @@ gat2
 ##about   
 gat2はgatの続編です。前作のgatがあまりにもバグが多かったので全部作りなおしてます。  
 主に自分がカップ麺作るときとか、時間を測って勉強するときなどに使えるようにつくってます。  
-
+   
 
 ![alt text](http://dl.dropbox.com/u/23369413/pictures/gat2/png/gat.png)  
 ArchLinux(Xfce)での動作画像  
+
+##Download   
+Test Binary for OSX Mountain Lion
+[Download](http://dl.dropbox.com/u/23369413/oss/gat.dmg)   
 
 ##Dependencies
 [Qt5](http://qt.nokia.com/).
