@@ -10,16 +10,17 @@ gat2はgatの続編です。前作のgatがあまりにもバグが多かった�
 ArchLinux(Xfce)での動作画像  
 
 ##Dependencies
-[Qt4](http://qt.nokia.com/).
+[Qt5](http://qt.nokia.com/).
 License is [LGPLv2](http://www.gnu.org/licenses/lgpl-2.1.html)   
+You cannot use Qt4.  
     
 ##Building gat
-ビルドするにはCMake(2.8.5 or later)がビルドする環境で利用可能である必要があります。CMakeは以下のURLからDLできます。   
+ビルドするにはCMake(2.8.10 or later)がビルドする環境で利用可能である必要があります。CMakeは以下のURLからDLできます。   
 
 http://www.cmake.org/   
    
 
-以下にはCMakeとgcc,GNUMakeを使ってビルドするコマンドの例を示します。また、gat2はQt4に依存しています。   
+以下にはCMakeとgcc,GNUMakeを使ってビルドするコマンドの例を示します。また、gat2はQt5に依存しています。   
 また、ArchLinuxではAURを使ってビルド、インストールすることもできます。Yaourtをインストールしているなら以下のコマンドを入力するだけです。
 
 	sudo yaourt -S gat2   
@@ -36,7 +37,7 @@ DLはgitがなくてもgithubからzipなどでDLできるのでそれを利用�
 #####次に、作業用ディレクトリを作りcmakeを実行します。   
 
 	$ cd gat2   
-	$ git checkout -b build 2.5.6  
+	$ git checkout -b build 2.6.0  
 	$ mkdir build   
 	$ cd build   
 
@@ -65,7 +66,7 @@ Windowsの場合cmakeはコマンドラインよりGUIツールを利用した�
 ##LICENSE  
 BSDライセンスです   
    
-Copyright (c) 2011-2012 opamp   
+Copyright (c) 2011-2013 opamp   
 All rights reserved.   
    
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
