@@ -11,8 +11,8 @@ PreferenceDialog::PreferenceDialog(QWidget* parent):
 {
     audioFileEdit = new QLineEdit();audioFileEdit->setReadOnly(true);
 	
-	notificationCheck = new QCheckBox("Notification");
-	connect(notificationCheck,SIGNAL(stateChanged(int)),this,SLOT(notificationCheckChanged(int)));
+    announcementCheck = new QCheckBox("Announcement");
+    connect(announcementCheck,SIGNAL(stateChanged(int)),this,SLOT(notificationCheckChanged(int)));
 	
 		/*xml read*/	
 	XmlParser xf;
@@ -21,9 +21,9 @@ PreferenceDialog::PreferenceDialog(QWidget* parent):
 	audioFileEdit->setText(xf.getAlarmFile());
 
 	if(xf.getCheckbox(QString::fromStdString("notification")) == true){
-		notificationCheck->setChecked(true);
+        announcementCheck->setChecked(true);
 	}else{
-		notificationCheck->setChecked(false);
+        announcementCheck->setChecked(false);
 	}
 		/*--------*/
 
@@ -41,7 +41,7 @@ PreferenceDialog::PreferenceDialog(QWidget* parent):
     audioFileEditLayout->addWidget(audioFileEditCallPathDialogButton);
 
 	QVBoxLayout *checkboxes = new QVBoxLayout();
-	checkboxes->addWidget(notificationCheck);
+    checkboxes->addWidget(announcementCheck);
 
     QVBoxLayout *mainLayout = new QVBoxLayout();
     mainLayout->addLayout(audioFileEditLayout);
@@ -81,7 +81,6 @@ bool PreferenceDialog::writeToFile(const QString &path){
 
 void PreferenceDialog::notificationCheckChanged(int n){
 	QString s = "notification";
-	std::cout<<"Notification check box changed.["<<n<<"]"<<std::endl;
 	XmlParser xf;
 	if(xf.open(config_file_path) == false){
 		std::cout<<"Failed to save xml"<<std::endl;

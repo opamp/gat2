@@ -65,12 +65,9 @@ private:
     ctd_d tdata;
     bool pause_f;
     QMediaPlayer *player;
-    //Phonon::MediaObject *callaudio;
 
     SetTimerDialog *countdownSetting;
 	
-//	customCounter *c_counter;
-
 	bool readFromFile(QString&);
 
 };
