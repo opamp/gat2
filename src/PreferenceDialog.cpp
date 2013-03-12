@@ -1,6 +1,9 @@
 #include "PreferenceDialog.hpp"
 #include "xml.hpp"
 #include <iostream>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QFileDialog>
 
 
 PreferenceDialog::PreferenceDialog(QWidget* parent):

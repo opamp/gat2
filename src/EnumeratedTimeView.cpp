@@ -1,4 +1,5 @@
 #include "EnumeratedTimeView.hpp"
+#include <QVBoxLayout>
 
 EnumeratedTimeView::EnumeratedTimeView(QWidget* parent):
     QDialog(parent)

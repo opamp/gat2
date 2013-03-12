@@ -2,6 +2,8 @@
 #include "xml.hpp"
 #include <iostream>
 #include <config.hpp>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
 
 CentralWidget::CentralWidget(QWidget *parent) :
     QWidget(parent)
@@ -41,8 +43,7 @@ CentralWidget::CentralWidget(QWidget *parent) :
     mainlayout->addLayout(buttonLayout);
 
     setLayout(mainlayout);
-//  callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(":/audio/rsc/rsc.wav"));
-    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
+    //callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
 }
 
 void CentralWidget::init_mode_Set(){
@@ -174,12 +175,15 @@ void CentralWidget::takeOneSec(){
         if(tdata.decOneSec()){
             this->refLCD(tdata.get_h(),tdata.get_m(),tdata.get_s());
         }else{
-            delete callaudio;
-			if(this->readFromFile(audioFilePath) != false){
-		         callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(audioFilePath));
-				 callaudio->play();
+            //delete callaudio;
+            if(this->readFromFile(audioFilePath) != false){
+                /*
+                callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(audioFilePath));
+                callaudio->play();
+                */
+                //QSound::play(audioFilePath);
 			}else{
-			    callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
+                //callaudio = Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource(""));
 			}
             emit finishCountDown();
             this->push_stop();

@@ -1,5 +1,7 @@
 #include "SetTimerDialog.hpp"
 #include <iostream>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 using namespace std;
 
 SetTimerDialog::SetTimerDialog(ctd_d* d, QWidget *parent):

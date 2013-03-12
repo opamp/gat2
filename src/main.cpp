@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <cstring>
 #include <string>
+#include <QTextCodec>
 #include "MainWindow.hpp"
 #include "version.hpp"
 
@@ -31,9 +32,10 @@ int main(int argc,char* argv[]){
 
     QApplication gat(argc,argv);
 	gat.setApplicationName("gat2");
-
+/*
 	QTextCodec::setCodecForTr(QTextCodec::codecForLocale());
 	QTextCodec::setCodecForCStrings(QTextCodec::codecForLocale());
+*/
 
     QSize MainWindowSize(default_width_size,default_height_size);
     MainWindow* window = new MainWindow();

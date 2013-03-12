@@ -1,6 +1,10 @@
 #ifndef COUNTDOWN_SETTING_HPP
 #define COUNTDOWN_SETTING_HPP
 #include <QtGui>
+#include <QDialog>
+#include <QSpinBox>
+#include <QLabel>
+#include <QPushButton>
 #include "TimeData.hpp"
 
 class SetTimerDialog : public QDialog
