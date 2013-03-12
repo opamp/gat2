@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <QMessageBox>
 #include <QFile>
 #include <QDir>
 #include <QSize>
@@ -15,32 +16,26 @@
 int checkxml();
 
 int main(int argc,char* argv[]){
-	for(int n = 1;n < argc;n++){
+    QApplication gat(argc,argv);
+    gat.setApplicationName("gat2");
+
+    for(int n = 1;n < argc;n++){
 		if(strcmp(argv[n],"-v") == 0 || strcmp(argv[n],"--version") == 0){
 			printf("gat2 version :: %s\n",gat_version);
 			printf("See also \"About Page\".\n");
 			return 0;
 		}
 	}
-	printf("start gat2.\n");
-	
+
 	if(checkxml() == 1){
-		/*設定ファイル(xml)が生成できなかった場合の処理*/
-		fprintf(stderr,"ERROR::Gat could not create $HOME/.gat.xml file.\n");
+        /*設定ファイル(xml)が生成できなかった場合の処理*/
+        QMessageBox::critical((new QWidget()), "ERROR", "Application couldn't create $HOME/.gat.xml file.");
 		exit(1);
 	}
-
-    QApplication gat(argc,argv);
-	gat.setApplicationName("gat2");
-/*
-	QTextCodec::setCodecForTr(QTextCodec::codecForLocale());
-	QTextCodec::setCodecForCStrings(QTextCodec::codecForLocale());
-*/
 
     QSize MainWindowSize(default_width_size,default_height_size);
     MainWindow* window = new MainWindow();
     window->setMinimumSize(MainWindowSize);
-//	window->setMaximumSize(MainWindowSize); // If this line is enable,you cannot change WindowSize.
     window->show();
 
     return gat.exec();
