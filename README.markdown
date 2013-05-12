@@ -10,7 +10,10 @@ gat2はgatの続編です。前作のgatがあまりにもバグが多かった�
 ArchLinux(Xfce)での動作画像  
 
 ##Download   
-Test Binary for OSX Mountain Lion
+Binary for Windows(32bit)  
+[Download](https://dl.dropboxusercontent.com/u/23369413/oss/Gat2-win32.zip)   
+   
+Test Binary for OSX Mountain Lion   
 [Download](http://dl.dropbox.com/u/23369413/oss/gat.dmg)   
 
 ##Dependencies
