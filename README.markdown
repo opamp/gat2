@@ -11,7 +11,7 @@ ArchLinux(Xfce)での動作画像
 
 ##Download   
 Binary for Windows(32bit)  
-[Download](https://dl.dropboxusercontent.com/u/23369413/oss/Gat2-win32.zip)   
+問題が見つかったため一時公開中止中   
    
 Test Binary for OSX Mountain Lion   
 [Download](http://dl.dropbox.com/u/23369413/oss/gat.dmg)   
